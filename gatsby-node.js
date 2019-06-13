@@ -6,44 +6,37 @@
 
 // You can delete this file if you're not using it
 
-const path = require("path")
-const languages = require("./src/languages/index")
-const postsPerPage = 10
+// const path = require("path")
+// const languages = require("./src/languages/index")
+// const postsPerPage = 10
 
-const getLangUrl = zone => {
-  return languages.langsWithCode[zone]
-}
+// const getLangUrl = zone => {
+//   return languages.langsWithCode[zone]
+// }
 
-const getLangWithCode = langKey => {
-  const l = {
-    es: "es-mx",
-    en: "en-us",
-  }
-  return l[langKey] ? l[langKey] : langKey
-}
+// const getLangWithCode = langKey => {
+//   const l = {
+//     es: "es-mx",
+//     en: "en-us",
+//   }
+//   return l[langKey] ? l[langKey] : langKey
+// }
 
-exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage, createRedirect } = actions
+// exports.onCreatePage = ({ page, actions }) => {
+//   const { createPage, deletePage, createRedirect } = actions
 
-  deletePage(page)
+//   deletePage(page)
 
-  const newContext = {
-    ...page.context,
-    langWithCode: getLangWithCode[page.context.langKey],
-  }
+//   const newContext = {
+//     ...page.context,
+//   }
 
-  createPage({
-    ...page,
-    context: newContext,
-  })
+//   createPage({
+//     ...page,
+//     context: newContext,
+//   })
 
-  createRedirect({
-    fromPath: `/`,
-    isPermanent: true,
-    redirectInBrowser: true,
-    toPath: `/en`,
-  })
-}
+// }
 
 /*
 exports.createPages = async ({ graphql, actions }) => {

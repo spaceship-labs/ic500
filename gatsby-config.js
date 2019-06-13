@@ -1,8 +1,8 @@
-if (process.env.NODE_ENV === "development") {
-  require("dotenv").config({
-    path: `${process.env.NODE_ENV}.env`,
-  })
-}
+// if (process.env.NODE_ENV === "development") {
+//   require("dotenv").config({
+//     path: `${process.env.NODE_ENV}.env`,
+//   })
+// }
 
 const languages = require("./src/languages/index")
 
@@ -12,7 +12,6 @@ module.exports = {
     title: `Integridad Corporativa 500`,
     description: `Integridad Corporativa 500 project`,
     author: `@spaceshiplabs`,
-    languages,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -38,22 +37,22 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-source-prismic`,
-      options: {
-        repositoryName: `mcci`,
-        accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-i18n",
-      options: {
-        langKeyDefault: languages.defaultLangKey,
-        useLangKeyLayout: false,
-        prefixDefault: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-prismic`,
+    //   options: {
+    //     repositoryName: `mcci`,
+    //     accessToken: `${process.env.API_KEY}`,
+    //     linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+    //   },
+    // },
+    // {
+    //   resolve: "gatsby-plugin-i18n",
+    //   options: {
+    //     langKeyDefault: languages.defaultLangKey,
+    //     useLangKeyLayout: false,
+    //     prefixDefault: true,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
