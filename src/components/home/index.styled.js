@@ -1,0 +1,63 @@
+import styled from "styled-components"
+import { Paragraph } from "../../theme/index.styled"
+
+const BannerTextBox = styled.div`
+  padding: 20px 0 30px 0;
+  * {
+    color: ${props => props.theme.White};
+  }
+  h2 {
+    font-family: ${props => props.theme.Font};
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 1.37;
+  }
+  p {
+    font-family: ${props => props.theme.Font};
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+`
+
+const BannerImg = styled.div`
+  flex: 0 1 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  img {
+    max-width: 100%;
+  }
+`
+
+const ContentText = styled.div`
+  text-align: center;
+  ${Paragraph} {
+    text-align: center;
+  }
+  img {
+    margin: 10px 20px;
+  }
+`
+
+const DownloadLinks = styled.div`
+  padding: 70px 0;
+  text-align: center;
+`
+
+const ChartsContent = styled.div`
+  text-align: center;
+  img {
+    max-width: 100%;
+    margin: 40px 0;
+  }
+  p {
+    font-family: ${props => props.theme.Font};
+    font-size: 16px;
+    font-weight: 600;
+    margin: 30px 0;
+  }
+`
+
+export { BannerTextBox, BannerImg, ContentText, DownloadLinks, ChartsContent }

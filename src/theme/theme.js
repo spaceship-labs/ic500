@@ -1,11 +1,12 @@
 export const Theme = {
   Yellow: "#e3ad55",
   Gray: "#adb2ba",
+  LGray: "#e5e5e5",
   White: "#ffffff",
   Black: "#1f191a",
   Font: "'Montserrat', sans-serif",
-  ContainerSmall: 500,
-  ContainerMedium: 630,
+  ContainerSmall: 580,
+  ContainerMedium: 730,
   ContainerCommon: 840,
   ContainerLarge: 1100,
   //media query

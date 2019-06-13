@@ -18,11 +18,11 @@ class FooterComponent extends Component {
               </Logo>
             </Row>
             <Row>
-              <Logo href="/" size="145">
-                <img alt="MCCI" src={mcci} />
-              </Logo>
               <Logo href="/" size="180">
                 <img alt="USAID" src={usaid} />
+              </Logo>
+              <Logo href="/" size="145">
+                <img alt="MCCI" src={mcci} />
               </Logo>
               <Logo href="/" size="180">
                 <img alt="Transparencia Mexicana" src={transparencia} />
