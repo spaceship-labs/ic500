@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Footer, Logo, SmallMenu } from "./index.styled"
+import { Footer, Logo, SmallMenu, Social } from "./index.styled"
 import { Container, Rows, Row } from "../../theme/index.styled"
 import ic from "../../theme/LogoIntegridadF.png"
 import mcci from "../../theme/mcci_logo.png"
@@ -16,6 +16,20 @@ class FooterComponent extends Component {
               <Logo href="/">
                 <img alt="IC500" src={ic} />
               </Logo>
+              <Rows>
+                <Social href="/">
+                  <i className="icon-facebook" />
+                </Social>
+                <Social href="/">
+                  <i className="icon-twitter" />
+                </Social>
+                <Social href="/">
+                  <i className="icon-youtube" />
+                </Social>
+                <Social href="/">
+                  <i className="icon-instagram" />
+                </Social>
+              </Rows>
             </Row>
             <Row width="50%">
               <Rows align="space-between">

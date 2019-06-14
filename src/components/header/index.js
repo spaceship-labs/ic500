@@ -1,47 +1,72 @@
 import React, { Component } from "react"
 import { Header, Logo, MenuItem, Menu } from "./index.styled"
-import { Container, Rows, Button } from "../../theme/index.styled"
+import { Rows, Button } from "../../theme/index.styled"
 import logo from "../../theme/LogoIntegridad.jpg"
+import logoSmall from "../../theme/2doLogoIntegridad.jpg"
 
 class HeaderComponent extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { scrollClass: "" }
+  }
+  componentDidMount() {
+    window.addEventListener("scroll", this.updateScrollState, {
+      passive: true,
+    })
+  }
+  updateScrollState = event => {
+    if (!event) return
+    const newScroll = window.scrollY > 300 ? "minify" : ""
+    this.setState({ scrollClass: newScroll })
+  }
   render() {
     const { section } = this.props
     return (
-      <Header>
-        <Container size="large">
-          <Rows align="space-between">
-            <Logo href="/">
-              <img alt="IC500" src={logo} />
-            </Logo>
-            <Menu>
-              <MenuItem
-                className={section === "about" ? "active" : ""}
-                href="/quienes-somos"
-              >
-                Quienes Somos
-              </MenuItem>
-              <MenuItem
-                className={section === "glosario" ? "active" : ""}
-                href="/"
-              >
-                Glosario
-              </MenuItem>
-              <MenuItem
-                className={section === "metodologia" ? "active" : ""}
-                href="/metodologia"
-              >
-                Metodología
-              </MenuItem>
-              <MenuItem
-                className={section === "recursos" ? "active" : ""}
-                href="/"
-              >
-                Recursos
-              </MenuItem>
-              <Button href="/">Contacto</Button>
-            </Menu>
-          </Rows>
-        </Container>
+      <Header className={this.state.scrollClass}>
+        <Rows align="flex-end">
+          <Logo href="/">
+            <img alt="IC500" src={logo} />
+          </Logo>
+          <Logo href="/" className="small">
+            <img alt="IC500" src={logoSmall} />
+          </Logo>
+          <Menu className={this.state.scrollClass}>
+            <Button className="showOnScroll" href="/">
+              Descargar Informe{" "}
+              <span>
+                2018 <i className="icon-arrow" />
+              </span>
+            </Button>
+            <Button className="showOnScroll" grayButton href="/">
+              Descarga la Base de Datos
+            </Button>
+            <MenuItem
+              className={section === "about" ? "active" : ""}
+              href="/quienes-somos"
+            >
+              Quienes Somos
+            </MenuItem>
+            <MenuItem
+              className={section === "glosario" ? "active" : ""}
+              href="/"
+            >
+              Glosario
+            </MenuItem>
+            <MenuItem
+              className={section === "metodologia" ? "active" : ""}
+              href="/metodologia"
+            >
+              Metodología
+            </MenuItem>
+            <MenuItem
+              className={section === "recursos" ? "active" : ""}
+              href="/"
+            >
+              Recursos
+            </MenuItem>
+            <Button href="/">Contacto</Button>
+          </Menu>
+        </Rows>
       </Header>
     )
   }

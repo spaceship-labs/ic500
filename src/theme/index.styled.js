@@ -16,6 +16,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   padding: 0;
+  padding-top: 128px;
   font-family: ${props => props.theme.FontAleo};
   * {
     font-family: ${props => props.theme.FontAleo};
@@ -33,6 +34,7 @@ const Section = styled.section`
 
 const Container = styled.div`
   width: 95%;
+  position: relative;
   ${props =>
     !props.size ? "max-width:" + props.theme.ContainerCommon + "px" : ""};
   ${props =>

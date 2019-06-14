@@ -38,4 +38,24 @@ const SmallMenu = styled.ul`
   }
 `
 
-export { Footer, Logo, SmallMenu }
+const Social = styled.a`
+  display: inline-block;
+  transition: background 0.3s;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 9px;
+  border-radius: 50%;
+  background-color: ${props => props.theme.Gray};
+  color: ${props => props.theme.Black};
+  font-size: 22px;
+  margin-right: 20px;
+  margin-top: 25px;
+  text-decoration: none;
+  &:hover {
+    background-color: ${props => props.theme.Yellow};
+  }
+`
+
+export { Footer, Logo, SmallMenu, Social }
