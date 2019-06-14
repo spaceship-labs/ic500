@@ -15,7 +15,7 @@ const Footer = styled.footer`
 
 const Logo = styled.a`
   display: inline-block;
-  max-width: ${props => (props.size ? props.size : 350)}px;
+  max-width: ${props => (props.size ? props.size : 300)}px;
   img {
     width: 100%;
     height: auto;

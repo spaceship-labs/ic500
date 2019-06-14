@@ -17,7 +17,7 @@ import FooterComponent from "../components/footer/index"
 import "../theme/layout.css"
 import "../theme/style.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ section, children }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -33,7 +33,10 @@ const Layout = ({ children }) => {
         return (
           <ThemeProvider theme={Theme}>
             <Wrapper>
-              <HeaderComponent siteTitle={data.site.siteMetadata.title} />
+              <HeaderComponent
+                section={section}
+                siteTitle={data.site.siteMetadata.title}
+              />
               <Content>
                 {children}
                 <FooterComponent />

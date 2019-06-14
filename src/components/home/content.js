@@ -31,8 +31,14 @@ class ContentComponent extends Component {
                 conocer sus políticas de integridad.
               </Paragraph>
               <br />
+            </ContentText>
+          </Container>
+          <Container size="small">
+            <ContentText>
               <p>
-                <Button href="/en">Ver Video</Button>
+                <Button href="/en">
+                  Ver Video <i className="icon-play" />
+                </Button>
               </p>
               <br />
               <Paragraph size="1">
@@ -51,6 +57,10 @@ class ContentComponent extends Component {
                 accionistas y, establecen mecanismos para hacerlos efectivos.
               </Paragraph>
               <br />
+            </ContentText>
+          </Container>
+          <Container size="medium">
+            <ContentText>
               <p>
                 <span>
                   <img alt="" src={mcci} />
@@ -76,7 +86,12 @@ class ContentComponent extends Component {
           <Container size="small">
             <DownloadLinks>
               <Rows align="space-around">
-                <Button href="/en">Descargar Informe 2019</Button>
+                <Button href="/">
+                  Descarga informe{" "}
+                  <span>
+                    2018 <i className="icon-arrow" />
+                  </span>
+                </Button>
                 <Button grayButton href="/en">
                   Descarga la Base de Datos
                 </Button>

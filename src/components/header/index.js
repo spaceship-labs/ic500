@@ -5,6 +5,7 @@ import logo from "../../theme/LogoIntegridad.jpg"
 
 class HeaderComponent extends Component {
   render() {
+    const { section } = this.props
     return (
       <Header>
         <Container size="large">
@@ -13,11 +14,31 @@ class HeaderComponent extends Component {
               <img alt="IC500" src={logo} />
             </Logo>
             <Menu>
-              <MenuItem href="/en">Quienes Somos</MenuItem>
-              <MenuItem href="/en">Glosario</MenuItem>
-              <MenuItem href="/en">Metodología</MenuItem>
-              <MenuItem href="/en">Recursos</MenuItem>
-              <Button href="/en">Contacto</Button>
+              <MenuItem
+                className={section === "about" ? "active" : ""}
+                href="/quienes-somos"
+              >
+                Quienes Somos
+              </MenuItem>
+              <MenuItem
+                className={section === "glosario" ? "active" : ""}
+                href="/"
+              >
+                Glosario
+              </MenuItem>
+              <MenuItem
+                className={section === "metodologia" ? "active" : ""}
+                href="/metodologia"
+              >
+                Metodología
+              </MenuItem>
+              <MenuItem
+                className={section === "recursos" ? "active" : ""}
+                href="/"
+              >
+                Recursos
+              </MenuItem>
+              <Button href="/">Contacto</Button>
             </Menu>
           </Rows>
         </Container>

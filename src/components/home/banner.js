@@ -25,8 +25,13 @@ class BannerComponent extends Component {
                   iniciativa.
                 </p>
                 <Rows align="space-between">
-                  <Button href="/en">Descarga informe 2018</Button>
-                  <Button href="/en" grayButton>
+                  <Button href="/en">
+                    Descarga informe{" "}
+                    <span>
+                      2018 <i className="icon-arrow" />
+                    </span>
+                  </Button>
+                  <Button href="/" grayButton>
                     Descarga la base de datos
                   </Button>
                 </Rows>

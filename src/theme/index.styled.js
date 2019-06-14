@@ -62,12 +62,14 @@ const Rows = styled.div`
 `
 const Row = styled.div`
   flex: ${props => (props.width ? "0 1 " + props.width : "1 0 auto")};
+  ${props => (props.shrink ? "flex: 0 1 auto;" : "")}
   flex-direction: column;
 `
 
 const Button = styled.a`
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 600;
   color: ${props => (props.grayButton ? props.theme.Black : props.theme.White)};
   background-color: ${props =>
     props.grayButton ? props.theme.Gray : props.theme.Yellow};
@@ -76,16 +78,38 @@ const Button = styled.a`
   border-radius: 20px;
   text-transform: uppercase;
   font-family: ${props => props.theme.Font};
+  i {
+    padding-left: 10px;
+    position: relative;
+    top: 1px;
+  }
+  span i,
+  span {
+    color: ${props => props.theme.Black};
+  }
 `
 
 /* 
           Texts
 */
 
+const TitleBar = styled.div`
+  background-color: ${props => props.theme.Black};
+  color: ${props => props.theme.White};
+  padding: 50px 0;
+  text-align: center;
+`
+
 const Title = styled.h1`
   font-size: 35px;
   font-weight: 600;
   line-height: 1.4;
+`
+
+const SubtitleSmall = styled.h2`
+  font-family: ${props => props.theme.Font};
+  font-size: 24px;
+  font-weight: 600;
 `
 
 const Paragraph = styled.p`
@@ -104,6 +128,57 @@ const Paragraph = styled.p`
   }
 `
 
+const TextWrapper = styled.div`
+  text-align: justify;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  * {
+    font-family: ${props => props.theme.Font};
+    text-align: justify;
+  }
+  h1 {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 1.71;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.33;
+  }
+  h3 {
+    width: 108%;
+    margin: 25px -4%;
+    text-align: center;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.56;
+  }
+  ol {
+    padding: 30px 50px;
+    list-style: none;
+    counter-reset: li;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.56;
+    font-style: italic;
+    font-weight: 500;
+  }
+  ol li {
+    counter-increment: li;
+  }
+  ol li::before {
+    content: counter(li);
+    color: ${props => props.theme.Yellow};
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+`
+
 export {
   Wrapper,
   Content,
@@ -111,7 +186,10 @@ export {
   Container,
   Rows,
   Row,
+  TitleBar,
+  TextWrapper,
   Title,
+  SubtitleSmall,
   Paragraph,
   Button,
 }

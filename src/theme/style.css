@@ -25,30 +25,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-youtube:before {
+.icon-facebook:before {
   content: "\e900";
 }
-.icon-twitter:before {
+.icon-instagram:before {
   content: "\e901";
 }
-.icon-facebook:before {
+.icon-twitter:before {
   content: "\e902";
 }
-.icon-calendario:before {
+.icon-youtube:before {
   content: "\e903";
 }
-.icon-periodico:before {
+.icon-arrow:before {
   content: "\e904";
 }
-.icon-correo:before {
+.icon-play:before {
   content: "\e905";
 }
-.icon-megafono:before {
+.icon-close:before {
   content: "\e906";
 }
-.icon-telefono:before {
+.icon-warning:before {
   content: "\e907";
-}
-.icon-ubicacion:before {
-  content: "\e908";
 }

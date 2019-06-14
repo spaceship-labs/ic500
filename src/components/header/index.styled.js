@@ -19,7 +19,6 @@ const Logo = styled.a`
     transition: height 0.5s;
     width: 350px;
     ${props => props.theme.largeBreakPoint} {
-      width: 400px;
     }
   }
   ${props => props.theme.smallBreakPoint} {
@@ -35,7 +34,9 @@ const MenuItem = styled.a`
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
+  &.active,
   &:hover {
+    color: ${props => props.theme.Yellow};
   }
 `
 

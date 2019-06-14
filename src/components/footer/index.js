@@ -12,21 +12,23 @@ class FooterComponent extends Component {
       <Footer>
         <Container size="large">
           <Rows align="space-between">
-            <Row>
+            <Row shrink>
               <Logo href="/">
                 <img alt="IC500" src={ic} />
               </Logo>
             </Row>
-            <Row>
-              <Logo href="/" size="180">
-                <img alt="USAID" src={usaid} />
-              </Logo>
-              <Logo href="/" size="145">
-                <img alt="MCCI" src={mcci} />
-              </Logo>
-              <Logo href="/" size="180">
-                <img alt="Transparencia Mexicana" src={transparencia} />
-              </Logo>
+            <Row width="50%">
+              <Rows align="space-between">
+                <Logo href="/" size="160">
+                  <img alt="USAID" src={usaid} />
+                </Logo>
+                <Logo href="/" size="125">
+                  <img alt="MCCI" src={mcci} />
+                </Logo>
+                <Logo href="/" size="160">
+                  <img alt="Transparencia Mexicana" src={transparencia} />
+                </Logo>
+              </Rows>
               <SmallMenu>
                 <li>
                   <a href="/">Aviso de privacidad</a>

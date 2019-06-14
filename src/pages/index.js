@@ -2,12 +2,12 @@ import React from "react"
 import Layout from "../layouts/index"
 import HomeContainer from "../containers/home"
 
-const IndexEsPage = ({ data }) => {
+const IndexPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout section="home">
       <HomeContainer />
     </Layout>
   )
 }
 
-export default IndexEsPage
+export default IndexPage
