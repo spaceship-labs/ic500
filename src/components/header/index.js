@@ -65,6 +65,9 @@ class HeaderComponent extends Component {
               Recursos
             </MenuItem>
             <Button href="/">Contacto</Button>
+            <Button color="Black" href="/cuestionario">
+              Test
+            </Button>
           </Menu>
         </Rows>
       </Header>

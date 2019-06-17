@@ -28,12 +28,14 @@ const Content = styled.div`
 `
 
 const Section = styled.section`
+  display: block;
   ${props =>
     props.color ? "background-color:" + props.theme[props.color] : ""}
 `
 
 const Container = styled.div`
   width: 95%;
+  padding: ${props => (props.padding ? "50px 0" : "1px")};
   position: relative;
   ${props =>
     !props.size ? "max-width:" + props.theme.ContainerCommon + "px" : ""};
@@ -79,6 +81,14 @@ const Button = styled.a`
   text-decoration: none;
   border-radius: 20px;
   text-transform: uppercase;
+  ${props =>
+    props.color
+      ? "color:" + props.theme.GetButtonTextColor(props.color) + ";"
+      : ""}
+  ${props =>
+    props.color
+      ? "background-color:" + props.theme.GetButtonBgColor(props.color) + ";"
+      : ""}
   font-family: ${props => props.theme.Font};
   i {
     padding-left: 10px;
