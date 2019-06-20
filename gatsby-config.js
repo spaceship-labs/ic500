@@ -1,10 +1,10 @@
-// if (process.env.NODE_ENV === "development") {
-//   require("dotenv").config({
-//     path: `${process.env.NODE_ENV}.env`,
-//   })
-// }
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config({
+    path: `${process.env.NODE_ENV}.env`,
+  })
+}
 
-const languages = require("./src/languages/index")
+//const languages = require("./src/languages/index")
 
 module.exports = {
   pathPrefix: "/gatsbyPrismic",
@@ -37,14 +37,14 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-source-prismic`,
-    //   options: {
-    //     repositoryName: `mcci`,
-    //     accessToken: `${process.env.API_KEY}`,
-    //     linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `ic500`,
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-i18n",
     //   options: {

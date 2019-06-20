@@ -5,9 +5,25 @@ import AboutContainer from "../containers/about"
 const AboutPage = ({ data }) => {
   return (
     <Layout section="about">
-      <AboutContainer />
+      <AboutContainer data={data.prismicQuienesSomos} />
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query AboutPageQuery {
+    prismicQuienesSomos {
+      uid
+      data {
+        title {
+          text
+        }
+        content {
+          html
+        }
+      }
+    }
+  }
+`
 
 export default AboutPage

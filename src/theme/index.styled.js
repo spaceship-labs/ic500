@@ -146,11 +146,13 @@ const Paragraph = styled.p`
 
 const TextWrapper = styled.div`
   text-align: justify;
+  ${props => (props.center ? "text-align: center;" : "")}
   padding-top: 40px;
   padding-bottom: 60px;
   * {
     font-family: ${props => props.theme.Font};
     text-align: justify;
+    ${props => (props.center ? "text-align: center;" : "")}
   }
   h1 {
     font-size: 35px;

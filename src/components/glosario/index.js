@@ -1,18 +1,19 @@
 import React, { Component } from "react"
 import { Section, Container, TitleBar, Title } from "../../theme/index.styled"
-import { Words } from "./data"
+//import { Words } from "./data"
 import WordComponent from "./word"
 
 class GlosarioComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { words: Words }
+    this.state = { words: this.props.data.words }
   }
   render() {
+    const title = this.props.data.title.text
     return (
       <Section id="glosario">
         <TitleBar>
-          <Title>Glosario</Title>
+          <Title>{title}</Title>
         </TitleBar>
         <Container size="large" padding>
           {this.state.words.map((item, index) => (

@@ -13,7 +13,7 @@ class RecursosContainer extends Component {
           keywords={["ic500"]}
           description="Integridad Corporativa 500"
         />
-        <RecursosComponent />
+        <RecursosComponent data={this.props.data.data} />
       </React.Fragment>
     )
   }

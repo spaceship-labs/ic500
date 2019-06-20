@@ -17,14 +17,17 @@ class WordComponent extends Component {
       <Word index={this.props.index}>
         <WordTitle>
           <a onClick={this.toggle}>
-            {this.state.word.title}
+            {this.state.word.word.text}
             <i className={`icon-arrow${this.state.word.open ? " open" : ""}`} />
           </a>
         </WordTitle>
         <WordScreen>
-          <WordHidden className={this.state.word.open ? "open" : ""}>
-            {this.state.word.content}
-          </WordHidden>
+          <WordHidden
+            className={this.state.word.open ? "open" : ""}
+            dangerouslySetInnerHTML={{
+              __html: this.state.word.word_content.html,
+            }}
+          />
         </WordScreen>
       </Word>
     )

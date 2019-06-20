@@ -1,21 +1,20 @@
 import React, { Component } from "react"
 import { Resource } from "./index.styled"
 import { Button } from "../../theme/index.styled"
-import politica from "../../theme/images/la_politica.jpg"
 
 class RecursoComponent extends Component {
   render() {
+    const { cover, resource_title, resource_url } = this.props.resource
     return (
       <Resource>
         <p>
-          <img src={politica} />
+          <img src={cover.url} />
         </p>
+        <p>{resource_title.text}</p>
         <p>
-          Building Corporate Integrity Systems To Address Corruption Risks
-          Transparencia Internacional
-        </p>
-        <p>
-          <Button>Descagar</Button>
+          <Button href={resource_url.url} target="_blank">
+            Descagar
+          </Button>
         </p>
       </Resource>
     )

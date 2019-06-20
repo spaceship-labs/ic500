@@ -11,7 +11,7 @@ const GlosarioContainer = ({ data }) => {
         keywords={["ic500"]}
         description="Integridad Corporativa 500"
       />
-      <GlosarioComponent />
+      <GlosarioComponent data={data.data} />
     </React.Fragment>
   )
 }
