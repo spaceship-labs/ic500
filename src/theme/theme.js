@@ -43,9 +43,4 @@ export const Theme = {
       : ButtonsColors.Yellow.text,
   GetButtonBgColor: color =>
     ButtonsColors[color] ? ButtonsColors[color].bg : ButtonsColors.Yellow.bg,
-
-  DarkGray: "#7c726e",
-  FontAleo: "'Montserrat', sans-serif",
-  SidebarWidth: 65,
-  SidebarWidth2x: 79,
 }

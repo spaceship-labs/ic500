@@ -7,7 +7,7 @@ import logoSmall from "../../theme/2doLogoIntegridad.jpg"
 class HeaderComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { scrollClass: "" }
+    this.state = { scrollClass: this.props.section !== "home" ? "minify" : "" }
   }
   componentDidMount() {
     window.addEventListener("scroll", this.updateScrollState, {
@@ -16,7 +16,8 @@ class HeaderComponent extends Component {
   }
   updateScrollState = event => {
     if (!event) return
-    const newScroll = window.scrollY > 300 ? "minify" : ""
+    const newScroll =
+      window.scrollY > 300 || this.props.section !== "home" ? "minify" : ""
     this.setState({ scrollClass: newScroll })
   }
   render() {
@@ -48,7 +49,7 @@ class HeaderComponent extends Component {
             </MenuItem>
             <MenuItem
               className={section === "glosario" ? "active" : ""}
-              href="/"
+              href="/glosario"
             >
               Glosario
             </MenuItem>

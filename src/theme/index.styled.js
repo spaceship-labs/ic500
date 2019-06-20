@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   padding: 0;
-  padding-top: 128px;
+  padding-top: ${props => (props.section !== "home" ? "77" : "128")}px;
   font-family: ${props => props.theme.FontAleo};
   * {
     font-family: ${props => props.theme.FontAleo};
