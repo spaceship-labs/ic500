@@ -1,6 +1,9 @@
 import styled from "styled-components"
 
-const Word = styled.div``
+const Word = styled.div`
+  ${props =>
+    props.index > 0 ? "border-top: 3px solid " + props.theme.LGray + ";" : ""}
+`
 
 const WordTitle = styled.h3`
   font-size: 24px;

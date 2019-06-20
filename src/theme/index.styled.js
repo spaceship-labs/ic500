@@ -110,6 +110,9 @@ const TitleBar = styled.div`
   color: ${props => props.theme.White};
   padding: 50px 0;
   text-align: center;
+  p {
+    font-size: 18px;
+  }
 `
 
 const Title = styled.h1`
@@ -122,6 +125,7 @@ const SubtitleSmall = styled.h2`
   font-family: ${props => props.theme.Font};
   font-size: 24px;
   font-weight: 600;
+  ${props => (props.center ? "text-align:center" : "")}
 `
 
 const Paragraph = styled.p`

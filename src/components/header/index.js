@@ -61,7 +61,7 @@ class HeaderComponent extends Component {
             </MenuItem>
             <MenuItem
               className={section === "recursos" ? "active" : ""}
-              href="/"
+              href="/recursos"
             >
               Recursos
             </MenuItem>

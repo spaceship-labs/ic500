@@ -14,7 +14,7 @@ class WordComponent extends Component {
   }
   render() {
     return (
-      <Word>
+      <Word index={this.props.index}>
         <WordTitle>
           <a onClick={this.toggle}>
             {this.state.word.title}

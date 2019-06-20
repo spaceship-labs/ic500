@@ -1,12 +1,5 @@
 import React, { Component } from "react"
-import { TextWrapper, ResultsTest } from "./index.styled"
-import {
-  Section,
-  Container,
-  Rows,
-  Paragraph,
-  Button,
-} from "../../theme/index.styled"
+import { Section, Container, TitleBar, Title } from "../../theme/index.styled"
 import { Words } from "./data"
 import WordComponent from "./word"
 
@@ -18,6 +11,9 @@ class GlosarioComponent extends Component {
   render() {
     return (
       <Section id="glosario">
+        <TitleBar>
+          <Title>Glosario</Title>
+        </TitleBar>
         <Container size="large" padding>
           {this.state.words.map((item, index) => (
             <WordComponent key={index} index={index} word={item} />
