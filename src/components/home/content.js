@@ -15,21 +15,14 @@ import ic500 from "../../theme/LogoIntegridadGraficas.jpg"
 
 class ContentComponent extends Component {
   render() {
+    const { content_1, content_2 } = this.props.data
     return (
       <React.Fragment>
         <Section id="HomeContent">
           <Container size="medium">
             <ContentText>
               <br />
-              <Paragraph size="2">
-                <b>
-                  Integridad Corporativa 500 (IC500) es el primer diagnóstico y
-                  evaluación de la presencia, calidad, publicidad y
-                  transparencia
-                </b>
-                con la que las 500 empresas más importantes de México dan a
-                conocer sus políticas de integridad.
-              </Paragraph>
+              <div dangerouslySetInnerHTML={{ __html: content_1.html }} />
               <br />
             </ContentText>
           </Container>
@@ -41,21 +34,7 @@ class ContentComponent extends Component {
                 </Button>
               </p>
               <br />
-              <Paragraph size="1">
-                <b>
-                  IC500 califica la existencia de códigos de ética y otras
-                  manifestaciones del compromiso anticorrupción de las empresas
-                  y su puntaje está basado en la transparencia, publicidad,
-                  precisión y alcance de las mismas como parte de un compromiso
-                  en contra de la corrupción.
-                </b>
-              </Paragraph>
-              <Paragraph size="1">
-                Otorga puntuaciones más altas a aquellas empresas que hacen
-                públicas y accesibles sus normas anticorrupción, socializan su
-                compromiso con empleados, directivos, socios comerciales y
-                accionistas y, establecen mecanismos para hacerlos efectivos.
-              </Paragraph>
+              <div dangerouslySetInnerHTML={{ __html: content_2.html }} />
               <br />
             </ContentText>
           </Container>

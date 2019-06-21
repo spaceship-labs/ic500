@@ -7,7 +7,12 @@ import logoSmall from "../../theme/2doLogoIntegridad.jpg"
 class HeaderComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { scrollClass: this.props.section !== "home" ? "minify" : "" }
+    const e = document.documentElement
+    const g = document.getElementsByTagName("body")[0]
+    const w = window.innerWidth || e.clientWidth || g.clientWidth
+    this.state = {
+      scrollClass: this.props.section !== "home" || w <= 1000 ? "minify" : "",
+    }
   }
   componentDidMount() {
     window.addEventListener("scroll", this.updateScrollState, {
@@ -16,8 +21,13 @@ class HeaderComponent extends Component {
   }
   updateScrollState = event => {
     if (!event) return
+    const e = document.documentElement
+    const g = document.getElementsByTagName("body")[0]
+    const w = window.innerWidth || e.clientWidth || g.clientWidth
     const newScroll =
-      window.scrollY > 300 || this.props.section !== "home" ? "minify" : ""
+      window.scrollY > 300 || this.props.section !== "home" || w <= 1000
+        ? "minify"
+        : ""
     this.setState({ scrollClass: newScroll })
   }
   render() {

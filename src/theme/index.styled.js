@@ -23,7 +23,8 @@ const Content = styled.div`
   }
   ${props => props.theme.largeBreakPoint} {
   }
-  ${props => props.theme.smallBreakPoint} {
+  ${props => props.theme.mediumBreakPoint} {
+    padding-top: 77px;
   }
 `
 

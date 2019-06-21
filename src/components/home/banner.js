@@ -5,25 +5,15 @@ import img from "../../theme/images/ImgBanner.png"
 
 class BannerComponent extends Component {
   render() {
+    const { title, subtitle } = this.props.data
     return (
       <Section color="Black">
         <Container size="large">
           <Rows align="space-between">
             <Row width="55%">
               <BannerTextBox>
-                <h2>
-                  No hay experiencia exitosa en la lucha contra la corrupción y
-                  la impunidad que no haya tenido la participación del sector
-                  privado.
-                </h2>
-                <p>
-                  Sin un compromiso de las empresas equivalente al que se les
-                  exige a las autoridades, la corrupción no podrá ser
-                  disminuida. A través de IC500, Mexicanos Contra la Corrupción
-                  y la Impunidad y Transparencia Mexicana buscan llamar al
-                  sector privado a tomar un rol activo y sumarse a la
-                  iniciativa.
-                </p>
+                <h2>{title.text}</h2>
+                <p>{subtitle.text}</p>
                 <Rows rowM rowS align="space-between" alignM="space-around">
                   <Button href="/en">
                     Descarga informe{" "}

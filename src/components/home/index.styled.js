@@ -41,6 +41,26 @@ const BannerImg = styled.div`
 
 const ContentText = styled.div`
   text-align: center;
+  h1 {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 1.71;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+  }
+  h3 {
+    width: 108%;
+    margin: 25px -4%;
+    text-align: center;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.56;
+  }
   ${Paragraph} {
     text-align: center;
   }
