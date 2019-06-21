@@ -16,7 +16,7 @@ class FooterComponent extends Component {
               <Logo href="/">
                 <img alt="IC500" src={ic} />
               </Logo>
-              <Rows>
+              <Rows rowM rowS alignM="center">
                 <Social href="/">
                   <i className="icon-facebook" />
                 </Social>
@@ -32,7 +32,7 @@ class FooterComponent extends Component {
               </Rows>
             </Row>
             <Row width="50%">
-              <Rows align="space-between">
+              <Rows rowS rowM align="space-between" alignM="center">
                 <Logo href="/" size="160">
                   <img alt="USAID" src={usaid} />
                 </Logo>
@@ -45,7 +45,7 @@ class FooterComponent extends Component {
               </Rows>
               <SmallMenu>
                 <li>
-                  <a href="/">Aviso de privacidad</a>
+                  <a href="/politicas-de-privacidad">Aviso de privacidad</a>
                 </li>
                 <li>
                   <a>Copyright 2019, All right Reserved</a>

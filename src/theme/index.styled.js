@@ -52,6 +52,10 @@ const Container = styled.div`
       ? "max-width:" + props.theme.ContainerLarge + "px"
       : ""};
   margin: 0 auto;
+  ${props => props.theme.mediumBreakPoint} {
+    width: 95%;
+    max-width: 95%;
+  }
 `
 
 const Rows = styled.div`
@@ -59,9 +63,19 @@ const Rows = styled.div`
   flex-direction: row;
   justify-content: ${props =>
     props.align && props.align === "start" ? "flex-start" : props.align};
-  ${props => (props.wrap ? "flex-wrap: wrap;" : "")} ${props =>
-    props.theme.mediumBreakPoint} {
-    flex-direction: column;
+  ${props => (props.wrap ? "flex-wrap: wrap;" : "")}
+  ${props => props.theme.mediumBreakPoint} {
+    flex-direction: ${props => (props.rowM ? "row" : "column")};
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    flex-direction: ${props => (props.rowM ? "row" : "column")};
+    justify-content: ${props =>
+      props.alignM && props.alignM === "start" ? "flex-start" : props.alignM};
+  }
+  ${props => props.theme.smallBreakPoint} {
+    flex-direction: ${props => (props.rowS ? "row" : "column")};
+    justify-content: ${props =>
+      props.alignS && props.alignS === "start" ? "flex-start" : props.alignS};
   }
 `
 const Row = styled.div`
@@ -98,6 +112,12 @@ const Button = styled.a`
   span i,
   span {
     color: ${props => props.theme.Black};
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    ${props => (props.hiddenM ? "display: none;" : "")}
+  }
+  ${props => props.theme.smallBreakPoint} {
+    ${props => (props.hiddenS ? "display: none;" : "")}
   }
 `
 
@@ -194,6 +214,12 @@ const TextWrapper = styled.div`
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    h3 {
+      width: 100%;
+      margin: 25px 0;
+    }
   }
 `
 

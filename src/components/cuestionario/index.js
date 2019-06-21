@@ -9,6 +9,7 @@ import {
 } from "../../theme/index.styled"
 import { Questions } from "./questions"
 import QuestionComponent from "./question"
+import arrow from "../../theme/images/arrow2.png"
 
 class CuestionarioComponent extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class CuestionarioComponent extends Component {
                 personalizadas para cada respuesta.
               </h4>
               <p>
-                <i className="icon-arrow bigIcon" />
+                <img alt="IC500" src={arrow} />
               </p>
             </ResultsTest>
           </Container>
@@ -67,7 +68,7 @@ class CuestionarioComponent extends Component {
         </Section>
         <Section>
           <Container size="large" padding>
-            <Rows wrap>
+            <Rows wrap rowM>
               {this.state.questions.map((item, index) => (
                 <QuestionComponent
                   key={index}

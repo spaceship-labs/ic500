@@ -3,7 +3,6 @@ import {
   Section,
   Container,
   Rows,
-  SubtitleSmall,
   TitleBar,
   Title,
   TextWrapper,
@@ -34,7 +33,7 @@ class RecursosComponent extends Component {
                 __html: this.props.data.content_white.html,
               }}
             />
-            <Rows wrap>
+            <Rows wrap rowM>
               {resources.map((item, index) => (
                 <RecursoComponent key={index} index={index} resource={item} />
               ))}

@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { TextWrapper } from "./index.styled"
 import { Section, Container } from "../../theme/index.styled"
-import img from "../../theme/images/ImgBanner.png"
+import img from "../../theme/images/test2.png"
+import arrow from "../../theme/images/arrow1.png"
 
 class ContentComponent extends Component {
   render() {
@@ -24,7 +25,7 @@ class ContentComponent extends Component {
               en la misma página.
             </p>
             <p>
-              <i class="icon-arrow bigIcon" />
+              <img alt="IC500" src={arrow} />
             </p>
           </TextWrapper>
         </Container>

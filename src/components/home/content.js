@@ -85,7 +85,7 @@ class ContentComponent extends Component {
         <Section color="LGray" id="downloads">
           <Container size="small">
             <DownloadLinks>
-              <Rows align="space-around">
+              <Rows align="space-around" rowM rowS>
                 <Button href="/">
                   Descarga informe{" "}
                   <span>

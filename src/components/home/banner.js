@@ -24,7 +24,7 @@ class BannerComponent extends Component {
                   sector privado a tomar un rol activo y sumarse a la
                   iniciativa.
                 </p>
-                <Rows align="space-between">
+                <Rows rowM rowS align="space-between" alignM="space-around">
                   <Button href="/en">
                     Descarga informe{" "}
                     <span>

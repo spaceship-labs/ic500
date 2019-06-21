@@ -24,7 +24,7 @@ class HeaderComponent extends Component {
     const { section } = this.props
     return (
       <Header className={this.state.scrollClass}>
-        <Rows align="flex-end">
+        <Rows rowM align="flex-end">
           <Logo href="/">
             <img alt="IC500" src={logo} />
           </Logo>
@@ -65,8 +65,10 @@ class HeaderComponent extends Component {
             >
               Recursos
             </MenuItem>
-            <Button href="/">Contacto</Button>
-            <Button color="Black" href="/cuestionario">
+            <Button hiddenM href="/">
+              Contacto
+            </Button>
+            <Button hiddenS color="Black" href="/cuestionario">
               Test
             </Button>
           </Menu>

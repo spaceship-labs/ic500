@@ -33,8 +33,10 @@ export const Theme = {
   //media query
   largeBreakPoint:
     "@media only screen and (min-width: 1400px), only screen and (min-width: 500px) and (min-resolution: 2dppx)",
-  mediumBreakPoint: "@media only screen and (max-width: 750px)",
-  smallBreakPoint: "@media only screen and (max-width: 450px)",
+  averageBreakPoint: "@media only screen and (max-width: 1250px)",
+  mediumBreakPoint: "@media only screen and (max-width: 1000px)",
+  smallBreakPoint: "@media only screen and (max-width: 750px)",
+  extraSmallBreakPoint: "@media only screen and (max-width: 450px)",
 
   //Buttons
   GetButtonTextColor: color =>

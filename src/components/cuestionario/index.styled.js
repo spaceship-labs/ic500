@@ -28,6 +28,13 @@ const BannerImg = styled.div`
   img {
     max-width: 100%;
   }
+  ${props => props.theme.mediumBreakPoint} {
+    display: block;
+    text-align: center;
+    img {
+      display: inline-block;
+    }
+  }
 `
 
 const TextWrapper = styled.div`
@@ -95,6 +102,16 @@ const Question = styled.div`
   }
   img {
     max-width: 100%;
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    &:nth-child(odd) {
+      padding-right: 0;
+    }
+    &:nth-child(even) {
+      padding-left: 0;
+      border-left: 0 none;
+    }
+    border-bottom: 3px solid ${props => props.theme.LGray};
   }
 `
 

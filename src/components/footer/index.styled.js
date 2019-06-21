@@ -20,6 +20,9 @@ const Logo = styled.a`
     width: 100%;
     height: auto;
   }
+  ${props => props.theme.mediumBreakPoint} {
+    padding: 10px 25px;
+  }
 `
 
 const SmallMenu = styled.ul`
@@ -35,6 +38,15 @@ const SmallMenu = styled.ul`
     letter-spacing: 2.2px;
     line-height: 1.33;
     color: ${props => props.theme.White};
+  }
+  a[href]:hover {
+    color: ${props => props.theme.Yellow};
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    li,
+    a {
+      text-align: center;
+    }
   }
 `
 
@@ -52,9 +64,13 @@ const Social = styled.a`
   font-size: 22px;
   margin-right: 20px;
   margin-top: 25px;
+  margin-bottom: 25px;
   text-decoration: none;
   &:hover {
     background-color: ${props => props.theme.Yellow};
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    margin: 25px 5%;
   }
 `
 

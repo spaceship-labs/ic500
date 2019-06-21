@@ -27,7 +27,15 @@ const BannerImg = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   img {
+    width: auto;
     max-width: 100%;
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    display: block;
+    text-align: center;
+    img {
+      display: inline-block;
+    }
   }
 `
 

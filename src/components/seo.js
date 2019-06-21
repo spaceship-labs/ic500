@@ -82,12 +82,13 @@ function SEO({ description, lang, meta, keywords, title }) {
         href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i&display=swap"
         rel="stylesheet"
       ></link>
+      <link rel="icon" type="image/ico" href="favicon.ico"></link>
     </Helmet>
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `es`,
   meta: [],
   keywords: [],
   description: ``,

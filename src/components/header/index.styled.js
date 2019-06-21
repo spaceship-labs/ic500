@@ -85,6 +85,9 @@ const MenuItem = styled.a`
       width: 100%;
     }
   }
+  ${props => props.theme.averageBreakPoint} {
+    display: none;
+  }
 `
 
 const Menu = styled.div`
