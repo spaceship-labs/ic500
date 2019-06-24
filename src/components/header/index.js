@@ -7,9 +7,7 @@ import logoSmall from "../../theme/2doLogoIntegridad.jpg"
 class HeaderComponent extends Component {
   constructor(props) {
     super(props)
-    const e = document.documentElement
-    const g = document.getElementsByTagName("body")[0]
-    const w = window.innerWidth || e.clientWidth || g.clientWidth
+    const w = this.getWindowWidth()
     this.state = {
       scrollClass: this.props.section !== "home" || w <= 1000 ? "minify" : "",
     }
@@ -19,11 +17,19 @@ class HeaderComponent extends Component {
       passive: true,
     })
   }
+  getWindowWidth = () => {
+    let result = 1000;
+    if (typeof window !== `undefined`){
+      const e = document.documentElement
+      const g = document.getElementsByTagName("body")[0]
+      result = window.innerWidth || e.clientWidth || g.clientWidth
+      
+    }
+    return result
+  }
   updateScrollState = event => {
     if (!event) return
-    const e = document.documentElement
-    const g = document.getElementsByTagName("body")[0]
-    const w = window.innerWidth || e.clientWidth || g.clientWidth
+    const w  = this.getWindowWidth()
     const newScroll =
       window.scrollY > 300 || this.props.section !== "home" || w <= 1000
         ? "minify"
