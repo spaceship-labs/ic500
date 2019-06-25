@@ -27,6 +27,32 @@ export const pageQuery = graphql`
         content_2 {
           html
         }
+        body {
+          slice_type
+          __typename
+          ... on PrismicHomeBodyGraficasDePreguntas {
+            slice_type
+            items {
+              section {
+                text
+              }
+              values {
+                text
+              }
+            }
+            primary {
+              chart_title {
+                text
+              }
+              axis_x {
+                text
+              }
+              axis_y {
+                text
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -28,11 +28,11 @@ class ContentComponent extends Component {
           </Container>
           <Container size="small">
             <ContentText>
-              <p>
+              {/*<p>
                 <Button href="/en">
                   Ver Video <i className="icon-play" />
                 </Button>
-              </p>
+              </p>*/}
               <br />
               <div dangerouslySetInnerHTML={{ __html: content_2.html }} />
               <br />

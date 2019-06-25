@@ -4,9 +4,14 @@ import { Section, Container, SubtitleSmall } from "../../theme/index.styled"
 import chart1 from "../../theme/images/grafica1.png"
 import chart2 from "../../theme/images/grafica2.png"
 import chart3 from "../../theme/images/grafica3.png"
+import ChartComponent from "./chart"
 
 class ChartsComponent extends Component {
   render() {
+    //console.log("DATA", this.props.data.body)
+    const charts = this.props.data.body.map((item, index) => {
+      return <ChartComponent chart={item} key={index} />
+    })
     return (
       <Section id="HomeCharts">
         <ChartsContent>
@@ -19,21 +24,10 @@ class ChartsComponent extends Component {
               <img alt="" src={chart1} />
             </p>
           </Container>
-          <Container size="medium">
-            <p>
-              ¿La empresa publica en su página web un código de ética o de
-              conducta para empleados?
-            </p>
-            <p>
-              <img alt="" src={chart2} />
-            </p>
-          </Container>
-          <Container size="large">
-            <p>Componentes de las políticas anticorrupción en 2017 y 2018</p>
-            <p>
-              <img alt="" src={chart3} />
-            </p>
-          </Container>
+          {charts}
+          <br />
+          <br />
+          <br />
         </ChartsContent>
       </Section>
     )
