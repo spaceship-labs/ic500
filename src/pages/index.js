@@ -28,8 +28,29 @@ export const pageQuery = graphql`
           html
         }
         body {
-          slice_type
           __typename
+          ... on PrismicHomeBodyGraficasDeValores {
+            slice_type
+            items {
+              year {
+                text
+              }
+              values {
+                text
+              }
+            }
+            primary {
+              chart_title {
+                text
+              }
+              axis_x {
+                text
+              }
+              axis_y {
+                text
+              }
+            }
+          }
           ... on PrismicHomeBodyGraficasDePreguntas {
             slice_type
             items {

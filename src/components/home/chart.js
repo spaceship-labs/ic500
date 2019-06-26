@@ -14,6 +14,8 @@ import {
   Legend,
   ErrorBar,
   LabelList,
+  AreaChart,
+  Area,
 } from "recharts"
 
 class ChartComponent extends Component {
@@ -39,10 +41,12 @@ class ChartComponent extends Component {
       type: slice_type,
     }
     this.setState(newState)
-    //console.log("NEW STATE", newState)
+    console.log("NEW STATE", newState)
   }
   getData = (items, type) => {
-    return type === "graficas_de_preguntas" ? this.getBarChartData(items) : []
+    return type === "graficas_de_preguntas"
+      ? this.getBarChartData(items)
+      : this.getAreaChartData(items)
   }
   getBarChartData = items => {
     const result = items.reduce((data, item) => {
@@ -64,11 +68,34 @@ class ChartComponent extends Component {
     }, [])
     return result
   }
+  getAreaChartData = items => {
+    let data = {}
+    let years = ""
+    items.map((item, index) => {
+      const { values, year } = item
+      years += (years !== "" ? "," : "") + year.text
+      const valuesLines = values.text.split(" ")
+      valuesLines.map((line, index) => {
+        if (index === 0) return
+        const currentLine = line.split(",")
+        if (!data[`${currentLine[0]}`]) {
+          data[`${currentLine[0]}`] = {
+            name: `${currentLine[0]}`,
+            years: years,
+          }
+        }
+        data[`${currentLine[0]}`].years = years
+        data[`${currentLine[0]}`][year.text] = currentLine[1]
+      })
+      //console.log("AREA CHART DATA", data)
+    })
+    return Object.values(data)
+  }
   barChart = () => {
     const { data } = this.state
-    //console.log("CHART DATA", data)
+    console.log("BAR CHART DATA", data)
     const w = data.length * 150
-    const years = data[0].years.split(",")
+    const years = data.length > 0 ? data[0].years.split(",") : []
     const colors = ["#fb8077", "#5a9eeb", "#e7a65a", "#adb2ba"]
     return (
       <BarChart width={w < 500 ? 500 : w} height={350} data={data}>
@@ -84,7 +111,31 @@ class ChartComponent extends Component {
     )
   }
   areaChart = () => {
-    return <p>AREA CHART</p>
+    const { data } = this.state
+    console.log("AREA CHART DATA", data)
+    const w = data.length * 150
+    const years = data.length > 0 ? data[0].years.split(",") : []
+    const colors = ["#fb8077", "#5a9eeb", "#e7a65a", "#adb2ba"]
+    return (
+      <AreaChart width={730} height={450} data={data}>
+        <XAxis />
+
+        <CartesianGrid strokeDasharray="3 3" />
+        <Tooltip />
+        <Legend />
+        {years.map((y, index) => {
+          return (
+            <Area
+              type="monotone"
+              key={index}
+              dataKey={y}
+              fill={colors[index % 4]}
+              fillOpacity={0.9}
+            />
+          )
+        })}
+      </AreaChart>
+    )
   }
   render() {
     //console.log("CHART", this.props.chart)
@@ -92,9 +143,10 @@ class ChartComponent extends Component {
       <Container size="large">
         <br />
         <br />
-        <SubtitleSmall>Resultados generales 2019</SubtitleSmall>
-        <p>Comparativo IC500 2017 Y 2018</p>
-        {this.barChart()}
+        <p>{this.state.name}</p>
+        {this.state.type === "graficas_de_preguntas"
+          ? this.barChart()
+          : this.areaChart()}
       </Container>
     )
   }

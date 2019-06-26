@@ -3,7 +3,7 @@ html {
   -webkit-text-size-adjust: 100%;
   min-height: 100%;
   height: 100%;
-  font-family: "'Montserrat', sans-serif";
+  font-family: "Montserrat", sans-serif;
 }
 body {
   margin: 0;
@@ -11,10 +11,19 @@ body {
   height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "'Montserrat', sans-serif";
+  font-family: "Montserrat", sans-serif;
 }
-body * {
-  font-family: "'Montserrat', sans-serif";
+body *,
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+p,
+div,
+span {
+  font-family: "Montserrat", sans-serif;
 }
 
 #___gatsby {
