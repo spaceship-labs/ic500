@@ -36,6 +36,10 @@ span {
   display: flex;
   flex: 1 0 auto;
 }
-.recharts-wrapper {
+.recharts-wrapper,
+.recharts-responsive-container {
   margin: 0 auto;
+}
+.recharts-cartesian-axis-ticks {
+  font-size: 11px;
 }

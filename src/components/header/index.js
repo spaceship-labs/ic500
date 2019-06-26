@@ -18,18 +18,17 @@ class HeaderComponent extends Component {
     })
   }
   getWindowWidth = () => {
-    let result = 1000;
-    if (typeof window !== `undefined`){
+    let result = 1000
+    if (typeof window !== `undefined`) {
       const e = document.documentElement
       const g = document.getElementsByTagName("body")[0]
       result = window.innerWidth || e.clientWidth || g.clientWidth
-      
     }
     return result
   }
   updateScrollState = event => {
     if (!event) return
-    const w  = this.getWindowWidth()
+    const w = this.getWindowWidth()
     const newScroll =
       window.scrollY > 300 || this.props.section !== "home" || w <= 1000
         ? "minify"
@@ -81,11 +80,11 @@ class HeaderComponent extends Component {
             >
               Recursos
             </MenuItem>
-            <Button hiddenM href="/">
-              Contacto
-            </Button>
             <Button hiddenS color="Black" href="/cuestionario">
               Test
+            </Button>
+            <Button hiddenM href="/">
+              Contacto
             </Button>
           </Menu>
         </Rows>

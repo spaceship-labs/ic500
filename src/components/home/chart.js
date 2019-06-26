@@ -16,18 +16,21 @@ import {
   LabelList,
   AreaChart,
   Area,
+  Label,
+  ResponsiveContainer,
 } from "recharts"
 
 class ChartComponent extends Component {
   constructor(props) {
     super(props)
+    const { primary, slice_type } = this.props.chart
     this.state = {
-      chart: {},
+      chart: this.props.chart,
       data: [],
-      name: "",
-      Xaxix: "",
-      Yaxix: "",
-      type: "",
+      name: primary.chart_title.text,
+      Xaxis: primary.axis_x.text || "",
+      Yaxis: primary.axis_y.text || "",
+      type: slice_type,
     }
   }
   componentWillMount() {
@@ -36,12 +39,12 @@ class ChartComponent extends Component {
       chart: this.props.chart,
       data: this.getData(items, slice_type),
       name: primary.chart_title.text,
-      Xaxix: primary.axix_x || "",
-      Yaxix: primary.axix_y || "",
+      Xaxis: primary.axis_x.text || "",
+      Yaxis: primary.axis_y.text || "",
       type: slice_type,
     }
     this.setState(newState)
-    console.log("NEW STATE", newState)
+    //console.log("NEW STATE", newState)
   }
   getData = (items, type) => {
     return type === "graficas_de_preguntas"
@@ -70,6 +73,13 @@ class ChartComponent extends Component {
   }
   getAreaChartData = items => {
     let data = {}
+    //const total = Array(100).fill(100)
+    const total = Array.from(Array(100), (x, index) => index)
+    total.map(index => {
+      return (data[`${index}`] = {
+        name: `${index}`,
+      })
+    })
     let years = ""
     items.map((item, index) => {
       const { values, year } = item
@@ -78,63 +88,91 @@ class ChartComponent extends Component {
       valuesLines.map((line, index) => {
         if (index === 0) return
         const currentLine = line.split(",")
-        if (!data[`${currentLine[0]}`]) {
-          data[`${currentLine[0]}`] = {
-            name: `${currentLine[0]}`,
+        const puntaje = Math.floor(currentLine[0])
+        if (!data[`${puntaje}`]) {
+          data[`${puntaje}`] = {
+            name: `${puntaje}`,
             years: years,
           }
         }
-        data[`${currentLine[0]}`].years = years
-        data[`${currentLine[0]}`][year.text] = currentLine[1]
+        data[`${puntaje}`].years = years
+        data[`${puntaje}`][year.text] = parseFloat(currentLine[1])
       })
       //console.log("AREA CHART DATA", data)
     })
+    // total.map(index => {
+    //   return (data[`${index}`] = {
+    //     years: years,
+    //     "2017": 0,
+    //     "2018": 0,
+    //   })
+    // })
     return Object.values(data)
   }
   barChart = () => {
     const { data } = this.state
-    console.log("BAR CHART DATA", data)
-    const w = data.length * 150
+    //console.log("BAR CHART DATA", data)
+    const w = data.length * 160
     const years = data.length > 0 ? data[0].years.split(",") : []
-    const colors = ["#fb8077", "#5a9eeb", "#e7a65a", "#adb2ba"]
+    const colors =
+      data.length < 3
+        ? ["#fb8077", "#5a9eeb", "#e7a65a", "#adb2ba"]
+        : ["#e7a65a", "#fb8077", "#5a9eeb", "#adb2ba"]
     return (
-      <BarChart width={w < 500 ? 500 : w} height={350} data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        {years.map((y, index) => {
-          return <Bar key={index} dataKey={y} fill={colors[index % 4]} />
-        })}
-      </BarChart>
+      <ResponsiveContainer width={w < 500 ? 500 : w} height={350}>
+        <BarChart data={data}>
+          <XAxis dataKey="name">
+            <Label value="" offset={0} position="insideBottom" />
+          </XAxis>
+          <YAxis
+            label={{
+              value: this.state.Yaxis,
+              angle: -90,
+              position: "insideBottomLeft",
+            }}
+          ></YAxis>
+          <Tooltip />
+          <Legend />
+          {years.map((y, index) => {
+            return <Bar key={index} dataKey={y} fill={colors[index % 4]} />
+          })}
+        </BarChart>
+      </ResponsiveContainer>
     )
   }
   areaChart = () => {
     const { data } = this.state
-    console.log("AREA CHART DATA", data)
-    const w = data.length * 150
+    //console.log("AREA CHART DATA", data)
     const years = data.length > 0 ? data[0].years.split(",") : []
-    const colors = ["#fb8077", "#5a9eeb", "#e7a65a", "#adb2ba"]
+    const colors = ["#fb8077", "#e7a65a", "#5a9eeb", "#adb2ba"]
     return (
-      <AreaChart width={730} height={450} data={data}>
-        <XAxis />
-
-        <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
-        <Legend />
-        {years.map((y, index) => {
-          return (
-            <Area
-              type="monotone"
-              key={index}
-              dataKey={y}
-              fill={colors[index % 4]}
-              fillOpacity={0.9}
-            />
-          )
-        })}
-      </AreaChart>
+      <ResponsiveContainer width={730} height={450}>
+        <AreaChart data={data}>
+          <XAxis />
+          <YAxis
+            label={{
+              value: this.state.Yaxis,
+              angle: -90,
+              position: "insideBottomLeft",
+            }}
+          ></YAxis>
+          <Tooltip />
+          <Legend />
+          {years.map((y, index) => {
+            return (
+              <Area
+                connectNulls
+                type="natural"
+                key={index}
+                dataKey={y}
+                fill={colors[index % 4]}
+                stroke={colors[index % 4]}
+                fillOpacity={0.8}
+              />
+            )
+          })}
+        </AreaChart>
+      </ResponsiveContainer>
     )
   }
   render() {
