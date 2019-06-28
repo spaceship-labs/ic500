@@ -8,6 +8,7 @@ import usaid from "../../theme/USAIDlogo.png"
 
 class FooterComponent extends Component {
   render() {
+    const { facebook, twitter, instagram, youtube } = this.props.data
     return (
       <Footer>
         <Container size="large">
@@ -17,18 +18,34 @@ class FooterComponent extends Component {
                 <img alt="IC500" src={ic} />
               </Logo>
               <Rows rowM rowS alignM="center">
-                <Social href="/">
-                  <i className="icon-facebook" />
-                </Social>
-                <Social href="/">
-                  <i className="icon-twitter" />
-                </Social>
-                <Social href="/">
-                  <i className="icon-youtube" />
-                </Social>
-                <Social href="/">
-                  <i className="icon-instagram" />
-                </Social>
+                {facebook.url ? (
+                  <Social href={facebook.url}>
+                    <i className="icon-facebook" />
+                  </Social>
+                ) : (
+                  ""
+                )}
+                {twitter.url ? (
+                  <Social href={twitter.url}>
+                    <i className="icon-twitter" />
+                  </Social>
+                ) : (
+                  ""
+                )}
+                {youtube.url ? (
+                  <Social href={youtube.url}>
+                    <i className="icon-youtube" />
+                  </Social>
+                ) : (
+                  ""
+                )}
+                {instagram.url ? (
+                  <Social href={instagram.url}>
+                    <i className="icon-instagram" />
+                  </Social>
+                ) : (
+                  ""
+                )}
               </Rows>
             </Row>
             <Row width="50%">

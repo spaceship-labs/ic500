@@ -130,6 +130,15 @@ const Button = styled.a`
   span {
     color: ${props => props.theme.Black};
   }
+  i{
+    font-style: normal;
+    &.hideS{
+      display: contents;
+    }
+    &.showS{
+      display: none;
+    }
+  }
   &:disabled,&[disabled]{
     opacity: .75;
     background-color: ${props => props.theme.Gray};
@@ -141,6 +150,14 @@ const Button = styled.a`
   }
   ${props => props.theme.smallBreakPoint} {
     ${props => (props.hiddenS ? "display: none;" : "")}
+    i{
+      &.hideS{
+        display: none;
+      }
+      &.showS{
+        display: contents;
+      }
+    }
   }
 `
 

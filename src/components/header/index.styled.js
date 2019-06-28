@@ -18,6 +18,9 @@ const Logo = styled.a`
     width: 150px;
   }
   ${props => props.theme.smallBreakPoint} {
+    &.small img {
+      width: 110px;
+    }
   }
 `
 
@@ -33,27 +36,27 @@ const Header = styled.header`
   z-index: 100;
   ${Logo} {
     &.small {
-      visivility: hidden;
+      visibility: hidden;
       opacity: 0;
     }
   }
   .showOnScroll {
-    visivility: hidden;
+    visibility: hidden;
     opacity: 0;
     transition: all 0.3s;
   }
   &.minify {
     padding: 20px 2%;
     .showOnScroll {
-      visivility: visible;
+      visibility: visible;
       opacity: 1;
     }
     ${Logo} {
       &.small {
-        visivility: visible;
+        visibility: visible;
         opacity: 1;
       }
-      visivility: hidden;
+      visibility: hidden;
       opacity: 0;
     }
   }
@@ -97,7 +100,7 @@ const Menu = styled.div`
   }
   &.minify {
     ${Button} {
-      font-size: 11px;
+      font-size: 10px;
     }
     ${MenuItem} {
       font-size: 12px;

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Header, Logo, MenuItem, Menu } from "./index.styled"
+import { Header, Logo, MenuItem, Menu, Burguer } from "./index.styled"
 import { Rows, Button } from "../../theme/index.styled"
 import logo from "../../theme/LogoIntegridad.jpg"
 import logoSmall from "../../theme/2doLogoIntegridad.jpg"
@@ -35,11 +35,33 @@ class HeaderComponent extends Component {
         : ""
     this.setState({ scrollClass: newScroll })
   }
+  getInforme = () => {
+    const { informes } = this.props.data
+    return informes.reduce(
+      (result, informe) => {
+        if (parseInt(informe.year.text) >= result.year)
+          result = {
+            year: parseInt(informe.year.text),
+            url: informe.informe.url,
+          }
+        return result
+      },
+      { year: 1, url: "" }
+    )
+  }
   render() {
     const { section } = this.props
+    const { database } = this.props.data
+    const informe = this.getInforme()
     return (
       <Header className={this.state.scrollClass}>
-        <Rows rowM align="flex-end">
+        {/*<Burguer
+          onClick={() => this.toggleMenu()}
+          className={this.state.menu ? "open" : ""}
+        >
+          <i className="" />
+      </Burguer>*/}
+        <Rows rowS rowM align="flex-end">
           <Logo href="/">
             <img alt="IC500" src={logo} />
           </Logo>
@@ -47,14 +69,16 @@ class HeaderComponent extends Component {
             <img alt="IC500" src={logoSmall} />
           </Logo>
           <Menu className={this.state.scrollClass}>
-            <Button className="showOnScroll" href="/">
-              Descargar Informe{" "}
+            <Button className="showOnScroll" href={informe.url} target="_blank">
+              <i className="hideS">Descargar </i>
+              Informe{" "}
               <span>
-                2018 <i className="icon-arrow" />
+                {informe.year} <i className="icon-descarga showS" />
               </span>
             </Button>
-            <Button className="showOnScroll" grayButton href="/">
-              Descarga la Base de Datos
+            <Button className="showOnScroll" grayButton href={database.url}>
+              <i className="hideS">Descargar la </i>
+              Base de Datos <i className="icon-descarga showS" />
             </Button>
             <MenuItem
               className={section === "about" ? "active" : ""}

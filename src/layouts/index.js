@@ -27,6 +27,33 @@ const Layout = ({ section, children }) => {
               title
             }
           }
+          prismicComun {
+            data {
+              facebook {
+                url
+              }
+              twitter {
+                url
+              }
+              instagram {
+                url
+              }
+              youtube {
+                url
+              }
+              database {
+                url
+              }
+              informes {
+                year {
+                  text
+                }
+                informe {
+                  url
+                }
+              }
+            }
+          }
         }
       `}
       render={data => {
@@ -36,10 +63,11 @@ const Layout = ({ section, children }) => {
               <HeaderComponent
                 section={section}
                 siteTitle={data.site.siteMetadata.title}
+                data={data.prismicComun.data}
               />
               <Content section={section}>
                 {children}
-                <FooterComponent />
+                <FooterComponent data={data.prismicComun.data} />
               </Content>
             </Wrapper>
           </ThemeProvider>
