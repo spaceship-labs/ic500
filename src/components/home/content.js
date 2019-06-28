@@ -4,11 +4,9 @@ import {
   Section,
   Container,
   Title,
-  Paragraph,
   Button,
   Rows,
 } from "../../theme/index.styled"
-import img from "../../theme/images/ImgBanner.png"
 import mcci from "../../theme/mcci_logoGRIS.jpg"
 import transparencia from "../../theme/transparencia_mexicanaGRIS.jpg"
 import ic500 from "../../theme/LogoIntegridadGraficas.jpg"

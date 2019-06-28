@@ -1,19 +1,12 @@
 import React, { Component } from "react"
-import { Section, Container, SubtitleSmall } from "../../theme/index.styled"
+import { Container } from "../../theme/index.styled"
 import {
   BarChart,
   Bar,
-  Brush,
-  Cell,
-  CartesianGrid,
-  ReferenceLine,
-  ReferenceDot,
   XAxis,
   YAxis,
   Tooltip,
   Legend,
-  ErrorBar,
-  LabelList,
   AreaChart,
   Area,
   Label,

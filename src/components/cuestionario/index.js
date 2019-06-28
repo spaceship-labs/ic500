@@ -7,16 +7,63 @@ import {
   Paragraph,
   Button,
 } from "../../theme/index.styled"
-import { Questions } from "./questions"
 import QuestionComponent from "./question"
 import arrow from "../../theme/images/arrow2.png"
 
 class CuestionarioComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { questions: Questions }
+    this.state = {
+      questions: this.props.data.questions,
+      complete: false,
+      results: "",
+      charts: "",
+    }
+  }
+  isComplete = newQuestions => {
+    const QA = this.state.questions.reduce((total, item) => {
+      total += typeof item.answer === "undefined" ? 0 : 1
+      return total
+    }, 0)
+    const complete = QA === this.state.questions.length
+    this.setState({ complete: complete, questions: newQuestions })
+  }
+  setAnswer = (val, index) => {
+    const answer = { ...this.state.questions[index], answer: val }
+    let newQuestions = this.state.questions
+    newQuestions[index] = answer
+    this.isComplete(newQuestions)
+  }
+  getCharts = () => {
+    return (
+      <Container size="large" padding>
+        <Rows wrap rowM>
+          {this.state.questions.map((item, index) => (
+            <QuestionComponent
+              key={index}
+              number={index + 1}
+              fullQuestion
+              question={item}
+            />
+          ))}
+        </Rows>
+      </Container>
+    )
+  }
+  evaluate = () => {
+    if (this.state.complete === false) return
+    const newResults = this.state.questions.reduce((total, item) => {
+      total += item.answer === true ? 1 : 0
+      return total
+    }, 0)
+    const charts = this.getCharts()
+    this.setState({
+      results: `${newResults} / ${this.state.questions.length}`,
+      charts: charts,
+    })
   }
   render() {
+    const { title_results, results_content } = this.props.data
     return (
       <React.Fragment>
         <Section>
@@ -25,6 +72,7 @@ class CuestionarioComponent extends Component {
               {this.state.questions.map((item, index) => (
                 <QuestionComponent
                   key={index}
+                  answer={val => this.setAnswer(val, index)}
                   number={index + 1}
                   question={item}
                 />
@@ -32,54 +80,34 @@ class CuestionarioComponent extends Component {
             </Rows>
             <br />
             <Paragraph align="center">
-              <Button>Evaluar</Button>
+              <Button
+                disabled={!this.state.complete}
+                onClick={() => this.evaluate()}
+              >
+                Evaluar
+              </Button>
             </Paragraph>
           </Container>
         </Section>
-        <Section color="Black">
+        <Section color="Black" hidden={this.state.results !== ""}>
           <Container size="medium" padding>
             <ResultsTest>
-              <h3>
-                De acuerdo con este test de autoevaluación tendrías una
-                calificación de:
-              </h3>
-              <p class="result">9 / 10</p>
-              <p>CADA SÍ ES UN PUNTO.</p>
-              <h4>
-                Se mostrará la calificación que arroja el test y gráficas
-                personalizadas para cada respuesta.
-              </h4>
+              <h3>{title_results.text}</h3>
+              <p className="result">{this.state.results}</p>
               <p>
                 <img alt="IC500" src={arrow} />
               </p>
             </ResultsTest>
           </Container>
         </Section>
-        <Section color="LGray">
+        <Section hidden={this.state.results !== ""} color="LGray">
           <Container size="large">
-            <TextWrapper>
-              <h2>Gráficas</h2>
-              <h3>
-                Por cada respuesta que se responda que SÍ se mostrará cuantas
-                empresas en el índice tienen este elemento y cuantas no por año.
-              </h3>
-            </TextWrapper>
+            <TextWrapper
+              dangerouslySetInnerHTML={{ __html: results_content.html }}
+            />
           </Container>
         </Section>
-        <Section>
-          <Container size="large" padding>
-            <Rows wrap rowM>
-              {this.state.questions.map((item, index) => (
-                <QuestionComponent
-                  key={index}
-                  number={index + 1}
-                  fullQuestion
-                  question={item}
-                />
-              ))}
-            </Rows>
-          </Container>
-        </Section>
+        <Section>{this.state.charts}</Section>
       </React.Fragment>
     )
   }

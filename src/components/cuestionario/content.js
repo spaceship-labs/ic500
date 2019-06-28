@@ -6,6 +6,7 @@ import arrow from "../../theme/images/arrow1.png"
 
 class ContentComponent extends Component {
   render() {
+    const { content } = this.props.data
     return (
       <Section color="LGray">
         <Container size="large">
@@ -13,17 +14,7 @@ class ContentComponent extends Component {
             <p>
               <img alt="IC500" src={img} />
             </p>
-            <h2>Desarrollamos un test</h2>
-            <h3>
-              que sirve como una auto-evaluación para que empresas o interesados
-              en el tema puedan hacer de manera sencilla y rápida un ejercicio
-              de revisión sobre la publicidad de las políticas anticorrupción de
-              cualquier empresa.
-            </h3>
-            <p>
-              Todas las respuestas tienen la opción de responder sí o no y están
-              en la misma página.
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: content.html }} />
             <p>
               <img alt="IC500" src={arrow} />
             </p>

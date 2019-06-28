@@ -3,6 +3,15 @@ import styled from "styled-components"
 /* 
           Containers 
 */
+const hidden = `
+  visivility: hidden;
+  opacity: 0;
+  display:none;
+`
+const visible = `
+  visivility: visible;
+  opacity: 1;
+`
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,6 +24,9 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
   padding: 0;
   padding-top: ${props => (props.section !== "home" ? "77" : "128")}px;
   font-family: ${props => props.theme.FontAleo};
@@ -30,6 +42,9 @@ const Content = styled.div`
 
 const Section = styled.section`
   display: block;
+  flex: 1 0 auto;
+  ${props => (props.hidden === false ? hidden : "")}
+  ${props => (props.hidden === true ? visible : "")}
   ${props =>
     props.color ? "background-color:" + props.theme[props.color] : ""}
 `
@@ -87,6 +102,7 @@ const Row = styled.div`
 
 const Button = styled.a`
   display: inline-block;
+  cursor: pointer;
   font-size: 12px;
   font-weight: 600;
   color: ${props => (props.grayButton ? props.theme.Black : props.theme.White)};
@@ -114,6 +130,12 @@ const Button = styled.a`
   span {
     color: ${props => props.theme.Black};
   }
+  &:disabled,&[disabled]{
+    opacity: .75;
+    background-color: ${props => props.theme.Gray};
+    cursor: not-allowed;
+  }
+  
   ${props => props.theme.mediumBreakPoint} {
     ${props => (props.hiddenM ? "display: none;" : "")}
   }
@@ -191,6 +213,12 @@ const TextWrapper = styled.div`
     margin: 25px -4%;
     text-align: center;
   }
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.56;
+    margin: 0;
+  }
   p {
     font-size: 16px;
     font-weight: 300;
@@ -224,6 +252,54 @@ const TextWrapper = styled.div`
   }
 `
 
+const Box = styled(Row)`
+  box-shadow: 0px 4px 10px 0 rgba(0, 0, 0, 0.38);
+  padding: 50px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  ${TextWrapper} {
+    padding: 0;
+    p {
+      margin: 0;
+    }
+  }
+`
+
+const Form = styled.form`
+  width: 100%;
+  p {
+    color: ${props => props.theme.Black};
+    font-size: 24px;
+    margin: 5px 0;
+  }
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid ${props => props.theme.Black};
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  button {
+    float: right;
+    margin-right: 50px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: ${props => props.theme.White};
+    background-color: ${props => props.theme.Yellow};
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 0 none;
+    text-transform: uppercase;
+    min-width: 200px;
+    color: ${props => props.theme.GetButtonTextColor("Yellow")};
+    background-color: ${props => props.theme.GetButtonBgColor(props.color)};
+  }
+`
+
 export {
   Wrapper,
   Content,
@@ -237,4 +313,6 @@ export {
   SubtitleSmall,
   Paragraph,
   Button,
+  Box,
+  Form,
 }

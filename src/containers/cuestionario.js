@@ -15,9 +15,9 @@ class CuestionarioContainer extends Component {
           keywords={["ic500"]}
           description="Integridad Corporativa 500"
         />
-        <BannerComponent />
-        <ContentComponent />
-        <CuestionarioComponent />
+        <BannerComponent data={this.props.data} />
+        <ContentComponent data={this.props.data} />
+        <CuestionarioComponent data={this.props.data} />
       </React.Fragment>
     )
   }

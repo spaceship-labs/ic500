@@ -5,26 +5,15 @@ import img from "../../theme/images/test1.png"
 
 class BannerComponent extends Component {
   render() {
+    const { title, title_content } = this.props.data
     return (
       <Section color="Black">
         <Container size="large">
           <Rows align="space-between">
             <Row width="60%">
               <BannerTextBox>
-                <h2>
-                  IC500 es un índice que mide la publicidad y la calidad de las
-                  políticas de integridad y anticorrupción de las 500 empresas
-                  más grandes de México.
-                </h2>
-                <p>
-                  El índice busca empezar una conversación sobre integridad
-                  corporativa en México y el rol del sector privado en la
-                  estrategia anticorrupción. Esta conversación no debe de
-                  quedarse en las 500 más grandes, al contrario, queremos que
-                  sea un detonador dentro de empresas de otros tamaños y otros
-                  sectores, y entre las personas que trabajan dentro de estas
-                  mismas y quizás no se ocupan de estos temas en el día a día.
-                </p>
+                <h2>{title.text}</h2>
+                <div dangerouslySetInnerHTML={{ __html: title_content.html }} />
                 <br />
               </BannerTextBox>
             </Row>

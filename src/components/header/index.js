@@ -83,7 +83,7 @@ class HeaderComponent extends Component {
             <Button hiddenS color="Black" href="/cuestionario">
               Test
             </Button>
-            <Button hiddenM href="/">
+            <Button hiddenM href="/contacto">
               Contacto
             </Button>
           </Menu>
