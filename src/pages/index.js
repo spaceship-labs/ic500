@@ -5,7 +5,7 @@ import HomeContainer from "../containers/home"
 const IndexPage = ({ data }) => {
   return (
     <Layout section="home">
-      <HomeContainer data={data.prismicHome.data} />
+      <HomeContainer data={data.prismicHome.data} db={data.prismicComun.data} />
     </Layout>
   )
 }
@@ -73,6 +73,13 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    prismicComun {
+      data {
+        database {
+          url
         }
       }
     }

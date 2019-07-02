@@ -15,8 +15,8 @@ class HomeContainer extends Component {
           keywords={["ic500"]}
           description="Integridad Corporativa 500"
         />
-        <BannerComponent data={this.props.data} />
-        <ContentComponent data={this.props.data} />
+        <BannerComponent data={this.props.data} db={this.props.db} />
+        <ContentComponent data={this.props.data} db={this.props.db} />
         <ChartsComponent data={this.props.data} />
       </React.Fragment>
     )

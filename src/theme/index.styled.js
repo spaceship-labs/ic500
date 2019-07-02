@@ -105,6 +105,7 @@ const Button = styled.a`
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
+  transition: all .4s;
   color: ${props => (props.grayButton ? props.theme.Black : props.theme.White)};
   background-color: ${props =>
     props.grayButton ? props.theme.Gray : props.theme.Yellow};
@@ -157,6 +158,47 @@ const Button = styled.a`
       &.showS{
         display: contents;
       }
+    }
+  }
+`
+
+const Dropdown = styled.div`
+  display: inline-block;
+  width: auto;
+  position: relative;
+  ul {
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+    top: 100%;
+    margin: 0;
+    margin-top: -15px;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: ${props => props.theme.Yellow};
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    list-style: none;
+    padding: 10px 25px 5px 25px;
+    a {
+      display: block;
+      color: white;
+      padding: 5px;
+      text-align: center;
+      border-top: 2px solid white;
+      text-decoration: none;
+    }
+  }
+  &.open {
+    ul {
+      margin-top: 0;
+      visibility: visible;
+      opacity: 1;
+    }
+    ${Button} {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
     }
   }
 `
@@ -330,6 +372,7 @@ export {
   SubtitleSmall,
   Paragraph,
   Button,
+  Dropdown,
   Box,
   Form,
 }

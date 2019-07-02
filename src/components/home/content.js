@@ -10,6 +10,7 @@ import {
 import mcci from "../../theme/mcci_logoGRIS.jpg"
 import transparencia from "../../theme/transparencia_mexicanaGRIS.jpg"
 import ic500 from "../../theme/LogoIntegridadGraficas.jpg"
+import DropdownComponent from "./dropdown"
 
 class ContentComponent extends Component {
   render() {
@@ -63,13 +64,8 @@ class ContentComponent extends Component {
           <Container size="small">
             <DownloadLinks>
               <Rows align="space-around" rowM rowS>
-                <Button href="/">
-                  Descarga informe{" "}
-                  <span>
-                    2018 <i className="icon-arrow" />
-                  </span>
-                </Button>
-                <Button grayButton href="/en">
+                <DropdownComponent />
+                <Button grayButton href={this.props.db.database.url}>
                   Descarga la Base de Datos
                 </Button>
               </Rows>

@@ -101,6 +101,8 @@ const Menu = styled.div`
   &.minify {
     ${Button} {
       font-size: 10px;
+      padding: 10px;
+      margin-left: 5px;
     }
     ${MenuItem} {
       font-size: 12px;
