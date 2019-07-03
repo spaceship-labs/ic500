@@ -63,7 +63,7 @@ class ContentComponent extends Component {
         <Section color="LGray" id="downloads">
           <Container size="small">
             <DownloadLinks>
-              <Rows align="space-around" rowM rowS>
+              <Rows align="space-around" rowM>
                 <DropdownComponent />
                 <Button grayButton href={this.props.db.database.url}>
                   Descarga la Base de Datos

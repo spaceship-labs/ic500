@@ -15,7 +15,7 @@ class BannerComponent extends Component {
               <BannerTextBox>
                 <h2>{title.text}</h2>
                 <p>{subtitle.text}</p>
-                <Rows rowM rowS align="space-between" alignM="space-around">
+                <Rows rowM align="space-between" alignM="space-around">
                   <DropdownComponent />
                   <Button href={this.props.db.database.url} grayButton>
                     Descarga la base de datos

@@ -81,6 +81,9 @@ export const pageQuery = graphql`
         database {
           url
         }
+        popup_content {
+          html
+        }
       }
     }
   }

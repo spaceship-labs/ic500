@@ -19,7 +19,7 @@ const Logo = styled.a`
   }
   ${props => props.theme.smallBreakPoint} {
     &.small img {
-      width: 110px;
+      width: 100px;
     }
   }
 `

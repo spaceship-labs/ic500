@@ -74,6 +74,13 @@ const Container = styled.div`
   }
 `
 
+const CustomContainer = styled(Container)`
+  width: ${props => props.width}px;
+  ${props => props.theme.mediumBreakPoint} {
+    width: 100%;
+  }
+`
+
 const Rows = styled.div`
   display: flex;
   flex-direction: row;
@@ -98,10 +105,12 @@ const Row = styled.div`
   flex: ${props => (props.width ? "0 1 " + props.width : "1 0 auto")};
   ${props => (props.shrink ? "flex: 0 1 auto;" : "")}
   flex-direction: column;
+  max-width: 100%;
 `
 
 const Button = styled.a`
   display: inline-block;
+  box-sizing: border-box;
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
@@ -199,6 +208,14 @@ const Dropdown = styled.div`
     ${Button} {
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
+    }
+  }
+  ${props => props.theme.smallBreakPoint} {
+    margin-bottom: 15px;
+    ${Button} {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
   }
 `
@@ -364,6 +381,7 @@ export {
   Content,
   Section,
   Container,
+  CustomContainer,
   Rows,
   Row,
   TitleBar,

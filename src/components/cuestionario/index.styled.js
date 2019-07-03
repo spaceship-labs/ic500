@@ -90,7 +90,9 @@ const ResultsTest = styled(TextWrapper)`
 `
 
 const Question = styled.div`
-  flex: 1 0 50%;
+  flex: 0 1 auto;
+  width: 50%;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 25px 0;
   &:nth-child(odd) {
@@ -104,6 +106,7 @@ const Question = styled.div`
     max-width: 100%;
   }
   ${props => props.theme.mediumBreakPoint} {
+    width: 100%;
     &:nth-child(odd) {
       padding-right: 0;
     }

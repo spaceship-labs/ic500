@@ -39,15 +39,13 @@ class ChartComponent extends Component {
   }
   barChart = () => {
     const { data } = this.state
-    //console.log("BAR CHART DATA", data)
-    const w = data.length * 160
     const years = data.length > 0 ? data[0].years.split(",") : []
     const colors =
       data.length < 3
         ? ["#fb8077", "#5a9eeb", "#e7a65a", "#adb2ba"]
         : ["#e7a65a", "#fb8077", "#5a9eeb", "#adb2ba"]
     return (
-      <ResponsiveContainer width={w < 400 ? 400 : w} height={350}>
+      <ResponsiveContainer width="100%" height={350}>
         <BarChart data={data}>
           <XAxis dataKey="name">
             <Label value="" offset={0} position="insideBottom" />

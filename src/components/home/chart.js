@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Container } from "../../theme/index.styled"
+import { Container, CustomContainer } from "../../theme/index.styled"
 import {
   BarChart,
   Bar,
@@ -66,7 +66,6 @@ class ChartComponent extends Component {
   }
   getAreaChartData = items => {
     let data = {}
-    //const total = Array(100).fill(100)
     const total = Array.from(Array(100), (x, index) => index)
     total.map(index => {
       return (data[`${index}`] = {
@@ -91,15 +90,7 @@ class ChartComponent extends Component {
         data[`${puntaje}`].years = years
         data[`${puntaje}`][year.text] = parseFloat(currentLine[1])
       })
-      //console.log("AREA CHART DATA", data)
     })
-    // total.map(index => {
-    //   return (data[`${index}`] = {
-    //     years: years,
-    //     "2017": 0,
-    //     "2018": 0,
-    //   })
-    // })
     return Object.values(data)
   }
   barChart = () => {
@@ -112,34 +103,36 @@ class ChartComponent extends Component {
         ? ["#fb8077", "#5a9eeb", "#e7a65a", "#adb2ba"]
         : ["#e7a65a", "#fb8077", "#5a9eeb", "#adb2ba"]
     return (
-      <ResponsiveContainer width={w < 500 ? 500 : w} height={350}>
-        <BarChart data={data}>
-          <XAxis dataKey="name">
-            <Label value="" offset={0} position="insideBottom" />
-          </XAxis>
-          <YAxis
-            label={{
-              value: this.state.Yaxis,
-              angle: -90,
-              position: "insideBottomLeft",
-            }}
-          ></YAxis>
-          <Tooltip />
-          <Legend />
-          {years.map((y, index) => {
-            return <Bar key={index} dataKey={y} fill={colors[index % 4]} />
-          })}
-        </BarChart>
-      </ResponsiveContainer>
+      <CustomContainer width={w < 500 ? 500 : w}>
+        <ResponsiveContainer width="100%" height={350}>
+          <BarChart data={data}>
+            <XAxis dataKey="name">
+              <Label value="" offset={0} position="insideBottom" />
+            </XAxis>
+            <YAxis
+              label={{
+                value: this.state.Yaxis,
+                angle: -90,
+                position: "insideBottomLeft",
+              }}
+            ></YAxis>
+            <Tooltip />
+            <Legend />
+            {years.map((y, index) => {
+              return <Bar key={index} dataKey={y} fill={colors[index % 4]} />
+            })}
+          </BarChart>
+        </ResponsiveContainer>
+      </CustomContainer>
     )
   }
   areaChart = () => {
     const { data } = this.state
-    //console.log("AREA CHART DATA", data)
+    //antes 730 de ancho
     const years = data.length > 0 ? data[0].years.split(",") : []
     const colors = ["#fb8077", "#e7a65a", "#5a9eeb", "#adb2ba"]
     return (
-      <ResponsiveContainer width={730} height={450}>
+      <ResponsiveContainer width="100%" height={450}>
         <AreaChart data={data}>
           <XAxis />
           <YAxis
