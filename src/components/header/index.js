@@ -80,19 +80,19 @@ class HeaderComponent extends Component {
             <Row>
               <ul>
                 <li>
-                  <a href="">Quiénes somos</a>
+                  <a href="/quienes-somos">Quiénes somos</a>
                 </li>
                 <li>
-                  <a href="">Glosario</a>
+                  <a href="/glosario">Glosario</a>
                 </li>
                 <li>
-                  <a href="">Metodología</a>
+                  <a href="/metodologia">Metodología</a>
                 </li>
                 <li>
-                  <a href="">Recursos</a>
+                  <a href="/recursos">Recursos</a>
                 </li>
                 <li>
-                  <a href="">Contacto</a>
+                  <a href="/contacto">Contacto</a>
                 </li>
               </ul>
               <Rows rowM rowS rowXs>

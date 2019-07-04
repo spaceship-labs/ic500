@@ -52,19 +52,22 @@ class ContactComponent extends Component {
                     </ContactItem>
                   </Row>
                   <Row width="50%">
-                    <Form>
+                    <Form
+                      action="https://formspree.io/erick@spaceshiplabs.com"
+                      method="POST"
+                    >
                       <Rows align="space-between">
                         <Row width="47%">
                           <label>{texts.name}</label>
-                          <input name="name" type="text" />
+                          <input name="nombre" type="text" />
                         </Row>
                         <Row width="47%">
                           <label>{texts.email}</label>
-                          <input name="email" type="text" />
+                          <input name="correo" type="text" />
                         </Row>
                       </Rows>
                       <label>{texts.message}</label>
-                      <textarea rows="5" />
+                      <textarea name="mensaje" rows="5" />
                       <Rows align="flex-end">
                         <Button>{texts.send}</Button>
                       </Rows>
