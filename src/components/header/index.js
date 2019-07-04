@@ -25,6 +25,9 @@ class HeaderComponent extends Component {
     window.addEventListener("scroll", this.updateScrollState, {
       passive: true,
     })
+    window.addEventListener("resize", this.updateScrollState, {
+      passive: true,
+    })
   }
   getWindowWidth = () => {
     let result = 1000

@@ -46,6 +46,7 @@ const Header = styled.header`
   .showOnScroll {
     visibility: hidden;
     opacity: 0;
+    display: none;
     transition: all 0.3s;
   }
   &.minify {
@@ -53,6 +54,7 @@ const Header = styled.header`
     .showOnScroll {
       visibility: visible;
       opacity: 1;
+      display: inline-block;
     }
     ${Logo} {
       &.small {
@@ -61,6 +63,13 @@ const Header = styled.header`
       }
       visibility: hidden;
       opacity: 0;
+    }
+  }
+  ${props => props.theme.extraSmallBreakPoint} {
+    &.minify {
+      .showOnScroll {
+        display: none;
+      }
     }
   }
 `
