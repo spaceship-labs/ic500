@@ -17,7 +17,7 @@ class FooterComponent extends Component {
               <Logo href="/">
                 <img alt="IC500" src={ic} />
               </Logo>
-              <Rows rowM rowS alignM="center">
+              <Rows rowM rowS rowXs alignM="center">
                 {facebook.url ? (
                   <Social href={facebook.url}>
                     <i className="icon-facebook" />

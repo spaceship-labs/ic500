@@ -1,6 +1,14 @@
 import React, { Component } from "react"
-import { Header, Logo, MenuItem, Menu, Burguer } from "./index.styled"
-import { Rows, Button } from "../../theme/index.styled"
+import {
+  Header,
+  Logo,
+  MenuItem,
+  Menu,
+  Burguer,
+  DropdownMenu,
+  Social,
+} from "./index.styled"
+import { Rows, Row, Button } from "../../theme/index.styled"
 import logo from "../../theme/LogoIntegridad.jpg"
 import logoSmall from "../../theme/2doLogoIntegridad.jpg"
 
@@ -10,6 +18,7 @@ class HeaderComponent extends Component {
     const w = this.getWindowWidth()
     this.state = {
       scrollClass: this.props.section !== "home" || w <= 1000 ? "minify" : "",
+      menu: false,
     }
   }
   componentDidMount() {
@@ -49,19 +58,92 @@ class HeaderComponent extends Component {
       { year: 1, url: "" }
     )
   }
+  toggleMenu = () => {
+    this.setState({ menu: !this.state.menu })
+  }
   render() {
     const { section } = this.props
     const { database } = this.props.data
+    const { facebook, twitter, instagram, youtube } = this.props.data
     const informe = this.getInforme()
     return (
       <Header className={this.state.scrollClass}>
-        {/*<Burguer
+        <Burguer
           onClick={() => this.toggleMenu()}
           className={this.state.menu ? "open" : ""}
         >
           <i className="" />
-      </Burguer>*/}
-        <Rows rowS rowM align="flex-end">
+        </Burguer>
+        <DropdownMenu className={this.state.menu ? "open" : ""}>
+          <Rows rowM rowS>
+            <i className="close icon-close" onClick={() => this.toggleMenu()} />
+            <Row>
+              <ul>
+                <li>
+                  <a href="">Quiénes somos</a>
+                </li>
+                <li>
+                  <a href="">Glosario</a>
+                </li>
+                <li>
+                  <a href="">Metodología</a>
+                </li>
+                <li>
+                  <a href="">Recursos</a>
+                </li>
+                <li>
+                  <a href="">Contacto</a>
+                </li>
+              </ul>
+              <Rows rowM rowS rowXs>
+                {facebook.url ? (
+                  <Social href={facebook.url}>
+                    <i className="icon-facebook" />
+                  </Social>
+                ) : (
+                  ""
+                )}
+                {twitter.url ? (
+                  <Social href={twitter.url}>
+                    <i className="icon-twitter" />
+                  </Social>
+                ) : (
+                  ""
+                )}
+                {youtube.url ? (
+                  <Social href={youtube.url}>
+                    <i className="icon-youtube" />
+                  </Social>
+                ) : (
+                  ""
+                )}
+                {instagram.url ? (
+                  <Social href={instagram.url}>
+                    <i className="icon-instagram" />
+                  </Social>
+                ) : (
+                  ""
+                )}
+              </Rows>
+            </Row>
+            <Row alignColumn>
+              <p>
+                <Button href={informe.url} target="_blank">
+                  Informe{" "}
+                  <span>
+                    {informe.year} <i className="icon-descarga " />
+                  </span>
+                </Button>
+              </p>
+              <p>
+                <Button grayButton href={database.url}>
+                  Base de Datos <i className="icon-descarga" />
+                </Button>
+              </p>
+            </Row>
+          </Rows>
+        </DropdownMenu>
+        <Rows rowS rowM rowXs align="flex-end">
           <Logo href="/">
             <img alt="IC500" src={logo} />
           </Logo>
@@ -69,14 +151,24 @@ class HeaderComponent extends Component {
             <img alt="IC500" src={logoSmall} />
           </Logo>
           <Menu className={this.state.scrollClass}>
-            <Button className="showOnScroll" href={informe.url} target="_blank">
+            <Button
+              hiddenS
+              className="showOnScroll"
+              href={informe.url}
+              target="_blank"
+            >
               <i className="hideS">Descargar </i>
               Informe{" "}
               <span>
                 {informe.year} <i className="icon-descarga showS" />
               </span>
             </Button>
-            <Button className="showOnScroll" grayButton href={database.url}>
+            <Button
+              hiddenS
+              className="showOnScroll"
+              grayButton
+              href={database.url}
+            >
               <i className="hideS">Descargar la </i>
               Base de Datos <i className="icon-descarga showS" />
             </Button>
@@ -104,7 +196,7 @@ class HeaderComponent extends Component {
             >
               Recursos
             </MenuItem>
-            <Button hiddenS color="Black" href="/cuestionario">
+            <Button color="Black" href="/cuestionario">
               Test
             </Button>
             <Button hiddenM href="/contacto">

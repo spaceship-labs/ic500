@@ -17,7 +17,10 @@ const Logo = styled.a`
   &.small img {
     width: 150px;
   }
-  ${props => props.theme.smallBreakPoint} {
+  ${props => props.theme.mediumBreakPoint} {
+    img {
+      left: 60px;
+    }
     &.small img {
       width: 100px;
     }
@@ -111,4 +114,132 @@ const Menu = styled.div`
   }
 `
 
-export { Header, Logo, MenuItem, Menu }
+const Burguer = styled.button`
+  cursor: pointer;
+  position: absolute;
+  transition: all 0.5s;
+  z-index: 102;
+  top: 3px;
+  left: 0;
+  border: 0 none;
+  width: 70px;
+  height: 70px;
+  display: none;
+  i {
+    display: block;
+    top: 0px;
+    left: 10px;
+    width: 25px;
+    height: 0px;
+    border-bottom: 3px solid black;
+    position: relative;
+    border-radius: 10px;
+    transition: all 0.2s;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 0;
+      width: 37px;
+      border-top: 3px solid black;
+      border-radius: 10px;
+      transition: all 0.5s;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 37px;
+      border-top: 3px solid black;
+      border-radius: 10px;
+      transition: all 0.5s;
+    }
+  }
+  &.open {
+    i {
+      width: 0;
+      &:before {
+        transform: rotate(45deg);
+        transform-origin: left top 0;
+        left: 9px;
+      }
+      &:after {
+        transform: rotate(-45deg);
+        transform-origin: left top 0;
+        bottom: -17px;
+        left: 6px;
+      }
+    }
+  }
+  ${props => props.theme.mediumBreakPoint} {
+    display: inline-block;
+  }
+`
+
+const DropdownMenu = styled.div`
+  position: fixed;
+  top: 73px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  left: 0;
+  padding: 50px 25px;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  margin-top: -30px;
+  transition: all 0.3s;
+  &.open {
+    margin-top: 0px;
+    visibility: visible;
+    opacity: 1;
+  }
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 30px;
+    list-style: none;
+    a {
+      display: block;
+      padding: 5px 0;
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      font-size: 18px;
+      &:hover {
+        color: ${props => props.theme.Yellow};
+      }
+    }
+  }
+`
+
+const Social = styled.a`
+  display: inline-block;
+  transition: background 0.3s;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 9px;
+  border-radius: 50%;
+  background-color: ${props => props.theme.Gray};
+  color: ${props => props.theme.Black};
+  font-size: 22px;
+  margin-right: 20px;
+  margin-top: 25px;
+  text-decoration: none;
+  &:hover {
+    background-color: ${props => props.theme.Yellow};
+  }
+`
+
+export { Header, Logo, MenuItem, Menu, Burguer, DropdownMenu, Social }

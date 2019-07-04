@@ -16,7 +16,6 @@ class DropdownComponent extends Component {
       if (a.year.text < b.year.text) return -1
       return 0
     })
-    console.log("DATA", data)
     return informes.map(informe => (
       <li>
         <a href={informe.informe.url}>{informe.year.text}</a>

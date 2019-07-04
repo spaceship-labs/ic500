@@ -100,12 +100,23 @@ const Rows = styled.div`
     justify-content: ${props =>
       props.alignS && props.alignS === "start" ? "flex-start" : props.alignS};
   }
+  ${props => props.theme.extraSmallBreakPoint} {
+    flex-direction: ${props => (props.rowXs ? "row" : "column")};
+    justify-content: ${props =>
+      props.alignXs && props.alignXs === "start"
+        ? "flex-start"
+        : props.alignXs};
+  }
 `
 const Row = styled.div`
   flex: ${props => (props.width ? "0 1 " + props.width : "1 0 auto")};
   ${props => (props.shrink ? "flex: 0 1 auto;" : "")}
   flex-direction: column;
   max-width: 100%;
+  ${props =>
+    props.alignColumn
+      ? "align-items: center;justify-content: center;display: flex;"
+      : ""}
 `
 
 const Button = styled.a`
