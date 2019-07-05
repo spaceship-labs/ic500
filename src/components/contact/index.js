@@ -7,79 +7,8 @@ import { Context } from "../../languages/context"
 
 class ContactComponent extends Component {
   render() {
-    return (
-      <Context.Consumer>
-        {({ texts }) => {
-          return (
-            <Section>
-              <Container>
-                <Title3>{this.props.data.title.text}</Title3>
-                <Rows align="space-between">
-                  <Row width="35%">
-                    <ContactItem>
-                      <i className="icon-correo" />
-                      <p>
-                        <span>
-                          <b>{texts.email}:</b>
-                        </span>
-                        <span>
-                          <a href="mailto:info@border.com">info@border.com</a>
-                        </span>
-                      </p>
-                    </ContactItem>
-                    <ContactItem>
-                      <i className="icon-ubicacion" />
-                      <p>
-                        <span>
-                          <b>{texts.address}:</b>
-                        </span>
-                        <span>
-                          Beniam rud exercitation ullamco laboris nisi ut
-                          aliquip
-                        </span>
-                      </p>
-                    </ContactItem>
-                    <ContactItem>
-                      <i className="icon-telefono" />
-                      <p>
-                        <span>
-                          <b>{texts.phone}:</b>
-                        </span>
-                        <span>
-                          <a href="tel:+55 0 68 79 87">+55 0 68 79 87</a>
-                        </span>
-                      </p>
-                    </ContactItem>
-                  </Row>
-                  <Row width="50%">
-                    <Form
-                      action="https://formspree.io/erick@spaceshiplabs.com"
-                      method="POST"
-                    >
-                      <Rows align="space-between">
-                        <Row width="47%">
-                          <label>{texts.name}</label>
-                          <input name="nombre" type="text" />
-                        </Row>
-                        <Row width="47%">
-                          <label>{texts.email}</label>
-                          <input name="correo" type="text" />
-                        </Row>
-                      </Rows>
-                      <label>{texts.message}</label>
-                      <textarea name="mensaje" rows="5" />
-                      <Rows align="flex-end">
-                        <Button>{texts.send}</Button>
-                      </Rows>
-                    </Form>
-                  </Row>
-                </Rows>
-              </Container>
-            </Section>
-          )
-        }}
-      </Context.Consumer>
-    )
+    const returnUrlBase = this.props.location.origin
+    return <p>a</p>
   }
 }
 

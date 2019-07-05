@@ -14,6 +14,7 @@ import SEO from "../components/seo"
 
 const ContactContainer = ({ data }) => {
   const { title, email, contact_data } = data
+  const returnUrlBase = "" //this.props.location.origin
   return (
     <React.Fragment>
       <SEO
@@ -46,7 +47,10 @@ const ContactContainer = ({ data }) => {
               </TextWrapper>
             </Box>
             <Row width="45%">
-              <Form>
+              <Form
+                action={`https://formspree.io/erick@spaceshiplabs.com`}
+                method="POST"
+              >
                 <p>Nombre</p>
                 <p>
                   <input type="text" name="name" />
@@ -62,6 +66,12 @@ const ContactContainer = ({ data }) => {
                 <p>
                   <button type="submit">Enviar</button>
                 </p>
+                <input
+                  type="hidden"
+                  name="_next"
+                  value={`${returnUrlBase}/contacto?success=ok`}
+                />
+                <input type="hidden" name="_language" value="es" />
               </Form>
             </Row>
           </Rows>
