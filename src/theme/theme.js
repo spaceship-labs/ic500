@@ -25,6 +25,7 @@ export const Theme = {
   LGray: Colors.LGray,
   White: Colors.White,
   Black: Colors.Black,
+  Green: "#05860545",
   Font: "'Montserrat', sans-serif",
   ContainerSmall: 580,
   ContainerMedium: 730,

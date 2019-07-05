@@ -2,10 +2,10 @@ import React from "react"
 import Layout from "../layouts/index"
 import ContactContainer from "../containers/contacto"
 
-const ContactPage = ({ data }) => {
+const ContactPage = ({ data, location }) => {
   return (
     <Layout section="contact">
-      <ContactContainer data={data.prismicContacto.data} />
+      <ContactContainer location={location} data={data.prismicContacto.data} />
     </Layout>
   )
 }

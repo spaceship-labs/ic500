@@ -387,6 +387,18 @@ const Form = styled.form`
   }
 `
 
+const SuccessMessage = styled.p`
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 13px;
+  color: black;
+  background-color: ${props => props.theme.Green};
+  box-sizing: border-box;
+  text-align: center;
+`
+
 export {
   Wrapper,
   Content,
@@ -404,4 +416,5 @@ export {
   Dropdown,
   Box,
   Form,
+  SuccessMessage,
 }
