@@ -14,7 +14,9 @@ import smoothscroll from "smoothscroll-polyfill"
 class CuestionarioComponent extends Component {
   constructor(props) {
     super(props)
-    smoothscroll.polyfill()
+    if (typeof window !== `undefined`) {
+      smoothscroll.polyfill()
+    }
     this.state = {
       questions: this.props.data.questions,
       complete: false,
