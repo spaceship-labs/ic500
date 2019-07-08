@@ -64,9 +64,11 @@ class CuestionarioComponent extends Component {
       results: `${newResults} / ${this.state.questions.length}`,
       charts: charts,
     })
-    setTimeout(() => {
-      this.scrollTo()
-    }, 500)
+    if (typeof window !== `undefined`) {
+      setTimeout(() => {
+        this.scrollTo()
+      }, 500)
+    }
   }
   scrollTo = () => {
     const element = document.getElementById("resultsSection")
