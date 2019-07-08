@@ -78,12 +78,15 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
+      link={[
+        { rel: "icon", type: "image/icon", href: `${favicon}` },
+        { rel: "shortcut icon", type: "image/icon", href: `${favicon}` },
+      ]}
     >
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i&display=swap"
         rel="stylesheet"
       ></link>
-      <link rel="icon" type="image/ico" href={favicon}></link>
     </Helmet>
   )
 }
