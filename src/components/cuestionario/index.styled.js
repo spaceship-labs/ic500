@@ -95,6 +95,8 @@ const Question = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   padding: 25px 0;
+  position: relative;
+  ${props => (props.hidden === true ? "display:none;" : "")}
   &:nth-child(odd) {
     padding-right: 65px;
   }
@@ -152,6 +154,18 @@ const Answer = styled.button`
     background-color: ${props => props.theme.Yellow};
   }
 `
+const Over = styled.div`
+  position: absolute;
+  transition: all 0.3s;
+  visibility: ${props => (props.hidden ? "hidden" : "visible")};
+  opacity: ${props => (props.hidden ? "0" : "1")};
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+`
 
 export {
   BannerTextBox,
@@ -161,4 +175,5 @@ export {
   Question,
   QuestionTitle,
   Answer,
+  Over,
 }

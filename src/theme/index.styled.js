@@ -7,6 +7,7 @@ const hidden = `
   visivility: hidden;
   opacity: 0;
   display:none;
+  height: 0px;
 `
 const visible = `
   visivility: visible;
@@ -43,8 +44,10 @@ const Content = styled.div`
 const Section = styled.section`
   display: block;
   flex: 1 0 auto;
-  ${props => (props.hidden === false ? hidden : "")}
-  ${props => (props.hidden === true ? visible : "")}
+  overflow: hidden;
+  transition: height .4s;
+  ${props => (props.hidden === true ? hidden : "")}
+  ${props => (props.hidden === false ? visible : "")}
   ${props =>
     props.color ? "background-color:" + props.theme[props.color] : ""}
 `

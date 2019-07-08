@@ -14,7 +14,6 @@ import {
 import SEO from "../components/seo"
 import queryString from "query-string"
 
-//const ContactContainer = ({ data }) => {
 class ContactContainer extends Component {
   constructor(props) {
     super(props)
@@ -30,8 +29,9 @@ class ContactContainer extends Component {
     console.log("showConfirm", showConfirm)
   }
   render() {
-    const { title, email, contact_data } = this.props.data
+    const { title, contact_data } = this.props.data
     const returnUrlBase = this.props.location.origin
+    const email = "contacto@integridadcorporativa500.mx"
     return (
       <React.Fragment>
         <SEO

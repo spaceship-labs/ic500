@@ -9,10 +9,12 @@ import {
 } from "../../theme/index.styled"
 import QuestionComponent from "./question"
 import arrow from "../../theme/images/arrow2.png"
+import smoothscroll from "smoothscroll-polyfill"
 
 class CuestionarioComponent extends Component {
   constructor(props) {
     super(props)
+    smoothscroll.polyfill()
     this.state = {
       questions: this.props.data.questions,
       complete: false,
@@ -44,6 +46,7 @@ class CuestionarioComponent extends Component {
               number={index + 1}
               fullQuestion
               question={item}
+              evaluated={false}
             />
           ))}
         </Rows>
@@ -61,13 +64,20 @@ class CuestionarioComponent extends Component {
       results: `${newResults} / ${this.state.questions.length}`,
       charts: charts,
     })
+    setTimeout(() => {
+      this.scrollTo()
+    }, 500)
+  }
+  scrollTo = () => {
+    const element = document.getElementById("resultsSection")
+    window.scroll({ top: element.offsetTop, let: 0, behavior: "smooth" })
   }
   render() {
     const { title_results, results_content } = this.props.data
     return (
       <React.Fragment>
-        <Section>
-          <Container size="large" padding>
+        <Section padding>
+          <Container size="large">
             <Rows wrap>
               {this.state.questions.map((item, index) => (
                 <QuestionComponent
@@ -75,6 +85,7 @@ class CuestionarioComponent extends Component {
                   answer={val => this.setAnswer(val, index)}
                   number={index + 1}
                   question={item}
+                  evaluated={this.state.results === "" ? false : true}
                 />
               ))}
             </Rows>
@@ -89,7 +100,11 @@ class CuestionarioComponent extends Component {
             </Paragraph>
           </Container>
         </Section>
-        <Section color="Black" hidden={this.state.results !== ""}>
+        <Section
+          id="resultsSection"
+          color="Black"
+          hidden={this.state.results === ""}
+        >
           <Container size="medium" padding>
             <ResultsTest>
               <h3>{title_results.text}</h3>
@@ -100,7 +115,7 @@ class CuestionarioComponent extends Component {
             </ResultsTest>
           </Container>
         </Section>
-        <Section hidden={this.state.results !== ""} color="LGray">
+        <Section hidden={this.state.results === ""} color="LGray">
           <Container size="large">
             <TextWrapper
               dangerouslySetInnerHTML={{ __html: results_content.html }}
