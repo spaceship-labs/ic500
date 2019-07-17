@@ -79,8 +79,8 @@ function SEO({ description, lang, meta, keywords, title }) {
         )
         .concat(meta)}
       link={[
-        { rel: "icon", type: "image/icon", href: `${favicon}` },
-        { rel: "shortcut icon", type: "image/icon", href: `${favicon}` },
+        { rel: "icon", type: "image/ico", href: `${favicon}` },
+        { rel: "shortcut icon", type: "image/ico", href: `${favicon}` },
       ]}
     >
       <link

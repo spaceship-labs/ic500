@@ -44,7 +44,7 @@ const Content = styled.div`
 const Section = styled.section`
   display: block;
   flex: 1 0 auto;
-  overflow: hidden;
+  
   transition: height .4s;
   ${props => (props.hidden === true ? hidden : "")}
   ${props => (props.hidden === false ? visible : "")}
@@ -189,6 +189,7 @@ const Dropdown = styled.div`
   display: inline-block;
   width: auto;
   position: relative;
+  z-index: 10;
   ul {
     transition: all 0.4s;
     visibility: hidden;

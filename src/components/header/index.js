@@ -17,7 +17,7 @@ class HeaderComponent extends Component {
     super(props)
     const w = this.getWindowWidth()
     this.state = {
-      scrollClass: this.props.section !== "home" || w <= 1000 ? "minify" : "",
+      scrollClass: this.props.section !== "home" ? "minify" : "",
       menu: false,
     }
   }
@@ -27,6 +27,10 @@ class HeaderComponent extends Component {
     })
     window.addEventListener("resize", this.updateScrollState, {
       passive: true,
+    })
+    const w = this.getWindowWidth()
+    this.setState({
+      scrollClass: this.props.section !== "home" || w <= 1000 ? "minify" : "",
     })
   }
   getWindowWidth = () => {
