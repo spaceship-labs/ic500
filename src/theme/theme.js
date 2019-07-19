@@ -4,10 +4,12 @@ const Colors = {
   LGray: "#e5e5e5",
   White: "#ffffff",
   Black: "#1f191a",
+  DYellow: "#d58e1b",
+  DGray: "#7f8082",
 }
 const ButtonsColors = {
   Yellow: {
-    text: Colors.Whute,
+    text: Colors.White,
     bg: Colors.Yellow,
   },
   Gray: {
@@ -17,6 +19,18 @@ const ButtonsColors = {
   Black: {
     text: Colors.White,
     bg: Colors.Black,
+  },
+  DYellow: {
+    text: Colors.White,
+    bg: Colors.DYellow,
+  },
+  DGray: {
+    text: Colors.Black,
+    bg: Colors.DGray,
+  },
+  DBlack: {
+    text: Colors.White,
+    bg: Colors.DGray,
   },
 }
 export const Theme = {

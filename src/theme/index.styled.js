@@ -168,7 +168,16 @@ const Button = styled.a`
     background-color: ${props => props.theme.Gray};
     cursor: not-allowed;
   }
-  
+  &:hover{
+    background-color: ${props =>
+      props.grayButton
+        ? props.theme.GetButtonBgColor("DGray")
+        : props.theme.GetButtonBgColor("DYellow")};
+    ${props =>
+      props.color && props.color === "Black"
+        ? "background-color:" + props.theme.GetButtonBgColor("DBlack") + ";"
+        : ""}
+  }
   ${props => props.theme.mediumBreakPoint} {
     ${props => (props.hiddenM ? "display: none;" : "")}
   }
@@ -292,12 +301,16 @@ const TextWrapper = styled.div`
     font-size: 35px;
     font-weight: 500;
     line-height: 1.71;
+    text-align: left;
+    ${props => (props.center ? "text-align: center;" : "")}
   }
   h2 {
     font-size: 24px;
     font-weight: 500;
     font-style: italic;
     line-height: 1.33;
+    text-align: left;
+    ${props => (props.center ? "text-align: center;" : "")}
   }
   h3 {
     width: 108%;
@@ -309,6 +322,8 @@ const TextWrapper = styled.div`
     font-weight: 600;
     line-height: 1.56;
     margin: 0;
+    text-align: left;
+    ${props => (props.center ? "text-align: center;" : "")}
   }
   p {
     font-size: 16px;

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Container, CustomContainer } from "../../theme/index.styled"
+import { ContentText } from "./index.styled"
 import {
   BarChart,
   Bar,
@@ -167,7 +168,9 @@ class ChartComponent extends Component {
       <Container size="large">
         <br />
         <br />
-        <p>{this.state.name}</p>
+        <ContentText>
+          <h2>{this.state.name}</h2>
+        </ContentText>
         {this.state.type === "graficas_de_preguntas"
           ? this.barChart()
           : this.areaChart()}
