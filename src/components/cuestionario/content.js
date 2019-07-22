@@ -10,7 +10,7 @@ class ContentComponent extends Component {
     return (
       <Section color="LGray">
         <Container size="large">
-          <TextWrapper>
+          <TextWrapper className="wow fadeInUp">
             <p>
               <img alt="IC500" src={img} />
             </p>

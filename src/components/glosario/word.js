@@ -14,7 +14,7 @@ class WordComponent extends Component {
   }
   render() {
     return (
-      <Word index={this.props.index}>
+      <Word index={this.props.index} className="wow fadeInDown">
         <WordTitle>
           <a onClick={this.toggle}>
             {this.state.word.word.text}

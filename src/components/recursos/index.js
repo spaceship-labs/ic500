@@ -8,15 +8,21 @@ import {
   TextWrapper,
 } from "../../theme/index.styled"
 import RecursoComponent from "./recurso"
+import WOW from "wowjs"
 
 class RecursosComponent extends Component {
+  componentDidMount() {
+    new WOW.WOW({
+      live: false,
+    }).init()
+  }
   render() {
     const title = this.props.data.title.text
     const resources = this.props.data.resources
     return (
       <React.Fragment>
         <TitleBar>
-          <Container>
+          <Container className="wow fadeInUp">
             <Title>{title}</Title>
             <div
               dangerouslySetInnerHTML={{
@@ -29,6 +35,7 @@ class RecursosComponent extends Component {
           <Container size="large">
             <TextWrapper
               center
+              className="wow fadeInUp"
               dangerouslySetInnerHTML={{
                 __html: this.props.data.content_white.html,
               }}

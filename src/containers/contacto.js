@@ -13,6 +13,7 @@ import {
 } from "../theme/index.styled"
 import SEO from "../components/seo"
 import queryString from "query-string"
+import WOW from "wowjs"
 
 class ContactContainer extends Component {
   constructor(props) {
@@ -26,7 +27,10 @@ class ContactContainer extends Component {
     const showConfirm =
       queryString.parse(this.props.location.search).success === "ok"
     this.setState({ openConfirm: showConfirm })
-    console.log("showConfirm", showConfirm)
+    //console.log("showConfirm", showConfirm)
+    new WOW.WOW({
+      live: false,
+    }).init()
   }
   render() {
     const { title, contact_data } = this.props.data
@@ -41,12 +45,12 @@ class ContactContainer extends Component {
           description="Integridad Corporativa 500"
         />
         <TitleBar>
-          <Title>{title.text}</Title>
+          <Title className="wow fadeInUp">{title.text}</Title>
         </TitleBar>
         <Section>
           <Container padding size="large">
             <Rows align="space-between">
-              <Box width="45%">
+              <Box width="45%" className="wow fadeInLeft">
                 <TextWrapper>
                   {contact_data.map(item => {
                     return (
@@ -63,7 +67,7 @@ class ContactContainer extends Component {
                   })}
                 </TextWrapper>
               </Box>
-              <Row width="45%">
+              <Row width="45%" className="wow fadeInRight">
                 {this.state.openConfirm === true ? (
                   <SuccessMessage>
                     Su correo ha sido enviado correctamente, gracias por su

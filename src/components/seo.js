@@ -87,6 +87,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i&display=swap"
         rel="stylesheet"
       ></link>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" />
     </Helmet>
   )
 }

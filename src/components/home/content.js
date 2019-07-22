@@ -18,14 +18,14 @@ class ContentComponent extends Component {
     return (
       <React.Fragment>
         <Section id="HomeContent">
-          <Container size="medium">
+          <Container size="medium" className="wow fadeInUp">
             <ContentText>
               <br />
               <div dangerouslySetInnerHTML={{ __html: content_1.html }} />
               <br />
             </ContentText>
           </Container>
-          <Container size="small">
+          <Container size="small" className="wow fadeInUp">
             <ContentText>
               {/*<p>
                 <Button href="/en">
@@ -37,7 +37,7 @@ class ContentComponent extends Component {
               <br />
             </ContentText>
           </Container>
-          <Container size="medium">
+          <Container size="medium" className="wow fadeInUp">
             <ContentText>
               <p>
                 <span>
@@ -61,7 +61,7 @@ class ContentComponent extends Component {
           </Container>
         </Section>
         <Section color="LGray" id="downloads">
-          <Container size="small">
+          <Container size="small" className="wow fadeInUp">
             <DownloadLinks>
               <Rows align="space-around" rowM>
                 <DropdownComponent />

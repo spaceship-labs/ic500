@@ -50,13 +50,13 @@ class FooterComponent extends Component {
             </Row>
             <Row width="50%">
               <Rows rowS rowM align="space-between" alignM="center">
-                <Logo href="/" size="160">
+                <Logo href="/" size="160" className="wow fadeInRight">
                   <img alt="USAID" src={usaid} />
                 </Logo>
-                <Logo href="/" size="125">
+                <Logo href="/" size="125" className="wow fadeInRight">
                   <img alt="MCCI" src={mcci} />
                 </Logo>
-                <Logo href="/" size="160">
+                <Logo href="/" size="160" className="wow fadeInRight">
                   <img alt="Transparencia Mexicana" src={transparencia} />
                 </Logo>
               </Rows>

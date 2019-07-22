@@ -165,7 +165,7 @@ class ChartComponent extends Component {
   render() {
     //console.log("CHART", this.props.chart)
     return (
-      <Container size="large">
+      <Container size="large" className="wow fadeInUp">
         <br />
         <br />
         <ContentText>

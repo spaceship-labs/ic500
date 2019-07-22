@@ -10,7 +10,10 @@ class QuestionComponent extends Component {
     const { question, evaluated } = this.props
     const chart = <ChartComponent data={question.values.text} />
     return (
-      <Question hidden={this.props.fullQuestion && !question.answer}>
+      <Question
+        hidden={this.props.fullQuestion && !question.answer}
+        className="wow fadeInUp"
+      >
         <QuestionTitle>
           <span>{this.props.number}.</span>
           {question.question.text}

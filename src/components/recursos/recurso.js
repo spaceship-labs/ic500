@@ -6,7 +6,7 @@ class RecursoComponent extends Component {
   render() {
     const { cover, resource_title, resource_url } = this.props.resource
     return (
-      <Resource>
+      <Resource className="wow fadeInUp">
         <p>
           <img src={cover.url} />
         </p>

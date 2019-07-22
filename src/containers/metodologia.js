@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import {
   Section,
   Container,
@@ -7,28 +7,41 @@ import {
   TextWrapper,
 } from "../theme/index.styled"
 import SEO from "../components/seo"
+import WOW from "wowjs"
 
-const MetodologiaContainer = ({ data }) => {
-  return (
-    <React.Fragment>
-      <SEO
-        lang="es"
-        title="Integridad Corporativa 500"
-        keywords={["ic500"]}
-        description="Integridad Corporativa 500"
-      />
-      <TitleBar>
-        <Title>{data.data.title.text}</Title>
-      </TitleBar>
-      <Section>
-        <Container>
-          <TextWrapper
-            dangerouslySetInnerHTML={{ __html: data.data.content.html }}
-          />
-        </Container>
-      </Section>
-    </React.Fragment>
-  )
+class MetodologiaContainer extends Component {
+  componentDidMount() {
+    new WOW.WOW({
+      live: false,
+    }).init()
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <SEO
+          lang="es"
+          title="Integridad Corporativa 500"
+          keywords={["ic500"]}
+          description="Integridad Corporativa 500"
+        />
+        <TitleBar>
+          <Title className="wow fadeInUp">
+            {this.props.data.data.title.text}
+          </Title>
+        </TitleBar>
+        <Section>
+          <Container>
+            <TextWrapper
+              className="wow fadeInUp"
+              dangerouslySetInnerHTML={{
+                __html: this.props.data.data.content.html,
+              }}
+            />
+          </Container>
+        </Section>
+      </React.Fragment>
+    )
+  }
 }
 
 export default MetodologiaContainer

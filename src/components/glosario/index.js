@@ -13,7 +13,7 @@ class GlosarioComponent extends Component {
     return (
       <Section id="glosario">
         <TitleBar>
-          <Title>{title}</Title>
+          <Title className="wow fadeInDown">{title}</Title>
         </TitleBar>
         <Container size="large" padding>
           {this.state.words.map((item, index) => (
