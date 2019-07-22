@@ -12,9 +12,11 @@ import WOW from "wowjs"
 
 class RecursosComponent extends Component {
   componentDidMount() {
-    new WOW.WOW({
-      live: false,
-    }).init()
+    if (typeof window !== `undefined`) {
+      new WOW.WOW({
+        live: false,
+      }).init()
+    }
   }
   render() {
     const title = this.props.data.title.text

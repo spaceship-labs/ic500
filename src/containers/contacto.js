@@ -28,9 +28,11 @@ class ContactContainer extends Component {
       queryString.parse(this.props.location.search).success === "ok"
     this.setState({ openConfirm: showConfirm })
     //console.log("showConfirm", showConfirm)
-    new WOW.WOW({
-      live: false,
-    }).init()
+    if (typeof window !== `undefined`) {
+      new WOW.WOW({
+        live: false,
+      }).init()
+    }
   }
   render() {
     const { title, contact_data } = this.props.data

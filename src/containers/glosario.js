@@ -5,9 +5,11 @@ import WOW from "wowjs"
 
 class GlosarioContainer extends Component {
   componentDidMount() {
-    new WOW.WOW({
-      live: false,
-    }).init()
+    if (typeof window !== `undefined`) {
+      new WOW.WOW({
+        live: false,
+      }).init()
+    }
   }
   render() {
     return (
