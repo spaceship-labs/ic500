@@ -8,11 +8,11 @@ import {
   TextWrapper,
 } from "../../theme/index.styled"
 import RecursoComponent from "./recurso"
-import WOW from "wowjs"
 
 class RecursosComponent extends Component {
   componentDidMount() {
     if (typeof window !== `undefined`) {
+      const WOW = require("wowjs")
       new WOW.WOW({
         live: false,
       }).init()

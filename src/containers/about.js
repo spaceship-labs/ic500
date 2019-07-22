@@ -7,11 +7,11 @@ import {
   TextWrapper,
 } from "../theme/index.styled"
 import SEO from "../components/seo"
-import WOW from "wowjs"
 
 class AboutContainer extends Component {
   componentDidMount() {
     if (typeof window !== `undefined`) {
+      const WOW = require("wowjs")
       new WOW.WOW({
         live: false,
       }).init()

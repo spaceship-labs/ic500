@@ -13,7 +13,6 @@ import {
 } from "../theme/index.styled"
 import SEO from "../components/seo"
 import queryString from "query-string"
-import WOW from "wowjs"
 
 class ContactContainer extends Component {
   constructor(props) {
@@ -29,6 +28,7 @@ class ContactContainer extends Component {
     this.setState({ openConfirm: showConfirm })
     //console.log("showConfirm", showConfirm)
     if (typeof window !== `undefined`) {
+      const WOW = require("wowjs")
       new WOW.WOW({
         live: false,
       }).init()

@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import SEO from "../components/seo"
 import GlosarioComponent from "../components/glosario/index"
-import WOW from "wowjs"
 
 class GlosarioContainer extends Component {
   componentDidMount() {
     if (typeof window !== `undefined`) {
+      const WOW = require("wowjs")
       new WOW.WOW({
         live: false,
       }).init()

@@ -4,11 +4,11 @@ import SEO from "../components/seo"
 import BannerComponent from "../components/cuestionario/banner"
 import ContentComponent from "../components/cuestionario/content"
 import CuestionarioComponent from "../components/cuestionario/index"
-import WOW from "wowjs"
 
 class CuestionarioContainer extends Component {
   componentDidMount() {
     if (typeof window !== `undefined`) {
+      const WOW = require("wowjs")
       new WOW.WOW({
         live: false,
       }).init()

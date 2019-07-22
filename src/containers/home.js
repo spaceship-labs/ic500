@@ -5,11 +5,11 @@ import BannerComponent from "../components/home/banner"
 import ContentComponent from "../components/home/content"
 import ChartsComponent from "../components/home/charts"
 import PopupComponent from "../components/popup/index"
-import WOW from "wowjs"
 
 class HomeContainer extends Component {
   componentDidMount() {
     if (typeof window !== `undefined`) {
+      const WOW = require("wowjs")
       new WOW.WOW({
         live: false,
       }).init()
