@@ -12,7 +12,10 @@ class BannerComponent extends Component {
         <Container size="large">
           <Rows align="space-between">
             <Row width="55%">
-              <BannerTextBox className="wow fadeInLeft">
+              <BannerTextBox
+                className="wow fadeInLeft"
+                style={{ visibility: "hidden" }}
+              >
                 <h2>{title.text}</h2>
                 <p>{subtitle.text}</p>
                 <Rows rowM align="space-between" alignM="space-around">
@@ -25,7 +28,12 @@ class BannerComponent extends Component {
               </BannerTextBox>
             </Row>
             <BannerImg>
-              <img alt="" src={img} className="wow fadeInRight" />
+              <img
+                alt=""
+                src={img}
+                className="wow fadeInRight"
+                style={{ visibility: "hidden" }}
+              />
             </BannerImg>
           </Rows>
         </Container>

@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import favicon from "../theme/favicon.ico"
+import "../theme/animate.min.css"
 
 function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
@@ -87,7 +88,6 @@ function SEO({ description, lang, meta, keywords, title }) {
         href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,500i&display=swap"
         rel="stylesheet"
       ></link>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" />
     </Helmet>
   )
 }

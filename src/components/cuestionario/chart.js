@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Container } from "../../theme/index.styled"
 import {
   BarChart,
   Bar,
@@ -33,6 +32,7 @@ class ChartComponent extends Component {
       i.years += (i.years !== "" ? "," : "") + currentLine[1]
       i[currentLine[1]] = parseFloat(currentLine[2])
       i[currentLine[1] + "_average"] = (currentLine[2] * 100) / currentLine[0]
+      return line
     })
     data.push(i)
     return data
