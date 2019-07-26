@@ -13,7 +13,9 @@ class GlosarioComponent extends Component {
     return (
       <Section id="glosario">
         <TitleBar>
-          <Title className="wow fadeInDown">{title}</Title>
+          <Title className="wow fadeInDown" style={{ visibility: "hidden" }}>
+            {title}
+          </Title>
         </TitleBar>
         <Container size="large" padding>
           {this.state.words.map((item, index) => (

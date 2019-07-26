@@ -24,7 +24,7 @@ class RecursosComponent extends Component {
     return (
       <React.Fragment>
         <TitleBar>
-          <Container className="wow fadeInUp">
+          <Container className="wow fadeInUp" style={{ visibility: "hidden" }}>
             <Title>{title}</Title>
             <div
               dangerouslySetInnerHTML={{
@@ -38,6 +38,7 @@ class RecursosComponent extends Component {
             <TextWrapper
               center
               className="wow fadeInUp"
+              style={{ visibility: "hidden" }}
               dangerouslySetInnerHTML={{
                 __html: this.props.data.content_white.html,
               }}

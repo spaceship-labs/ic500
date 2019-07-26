@@ -10,14 +10,21 @@ class BannerComponent extends Component {
       <Section color="Black">
         <Container size="large">
           <Rows align="space-between">
-            <Row width="60%" className="wow fadeInLeft">
+            <Row
+              width="60%"
+              className="wow fadeInLeft"
+              style={{ visibility: "hidden" }}
+            >
               <BannerTextBox>
                 <h2>{title.text}</h2>
                 <div dangerouslySetInnerHTML={{ __html: title_content.html }} />
                 <br />
               </BannerTextBox>
             </Row>
-            <BannerImg className="wow fadeInRight">
+            <BannerImg
+              className="wow fadeInRight"
+              style={{ visibility: "hidden" }}
+            >
               <img alt="" src={img} />
             </BannerImg>
           </Rows>

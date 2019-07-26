@@ -18,14 +18,14 @@ class ContentComponent extends Component {
     return (
       <React.Fragment>
         <Section id="HomeContent">
-          <Container size="medium" className="wow fadeInUp">
+          <Container size="medium" className="wow fadeInUp" style={{ visibility: "hidden" }}>
             <ContentText>
               <br />
               <div dangerouslySetInnerHTML={{ __html: content_1.html }} />
               <br />
             </ContentText>
           </Container>
-          <Container size="small" className="wow fadeInUp">
+          <Container size="small" className="wow fadeInUp" style={{ visibility: "hidden" }}>
             <ContentText>
               {/*<p>
                 <Button href="/en">
@@ -37,7 +37,7 @@ class ContentComponent extends Component {
               <br />
             </ContentText>
           </Container>
-          <Container size="medium" className="wow fadeInUp">
+          <Container size="medium" className="wow fadeInUp" style={{ visibility: "hidden" }}>
             <ContentText>
               <p>
                 <span>
@@ -61,7 +61,7 @@ class ContentComponent extends Component {
           </Container>
         </Section>
         <Section color="LGray" id="downloads">
-          <Container size="small" className="wow fadeInUp">
+          <Container size="small" className="wow fadeInUp" style={{ visibility: "hidden" }}>
             <DownloadLinks>
               <Rows align="space-around" rowM>
                 <DropdownComponent />

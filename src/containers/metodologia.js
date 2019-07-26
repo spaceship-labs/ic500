@@ -27,7 +27,7 @@ class MetodologiaContainer extends Component {
           description="Integridad Corporativa 500"
         />
         <TitleBar>
-          <Title className="wow fadeInUp">
+          <Title className="wow fadeInUp" style={{ visibility: "hidden" }}>
             {this.props.data.data.title.text}
           </Title>
         </TitleBar>
@@ -35,6 +35,7 @@ class MetodologiaContainer extends Component {
           <Container>
             <TextWrapper
               className="wow fadeInUp"
+              style={{ visibility: "hidden" }}
               dangerouslySetInnerHTML={{
                 __html: this.props.data.data.content.html,
               }}

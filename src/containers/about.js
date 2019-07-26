@@ -28,12 +28,15 @@ class AboutContainer extends Component {
           description="Integridad Corporativa 500"
         />
         <TitleBar>
-          <Title className="wow fadeInUp">{data.data.title.text}</Title>
+          <Title className="wow fadeInUp" style={{ visibility: "hidden" }}>
+            {data.data.title.text}
+          </Title>
         </TitleBar>
         <Section>
           <Container>
             <TextWrapper
               className="wow fadeInUp"
+              style={{ visibility: "hidden" }}
               dangerouslySetInnerHTML={{ __html: data.data.content.html }}
             />
           </Container>

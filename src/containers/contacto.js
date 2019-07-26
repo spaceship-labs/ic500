@@ -47,12 +47,18 @@ class ContactContainer extends Component {
           description="Integridad Corporativa 500"
         />
         <TitleBar>
-          <Title className="wow fadeInUp">{title.text}</Title>
+          <Title className="wow fadeInUp" style={{ visibility: "hidden" }}>
+            {title.text}
+          </Title>
         </TitleBar>
         <Section>
           <Container padding size="large">
             <Rows align="space-between">
-              <Box width="45%" className="wow fadeInLeft">
+              <Box
+                width="45%"
+                className="wow fadeInLeft"
+                style={{ visibility: "hidden" }}
+              >
                 <TextWrapper>
                   {contact_data.map(item => {
                     return (
@@ -69,7 +75,11 @@ class ContactContainer extends Component {
                   })}
                 </TextWrapper>
               </Box>
-              <Row width="45%" className="wow fadeInRight">
+              <Row
+                width="45%"
+                className="wow fadeInRight"
+                style={{ visibility: "hidden" }}
+              >
                 {this.state.openConfirm === true ? (
                   <SuccessMessage>
                     Su correo ha sido enviado correctamente, gracias por su
