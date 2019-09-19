@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import BannerComponent from "../components/home/banner"
 import ContentComponent from "../components/home/content"
 import ChartsComponent from "../components/home/charts"
+import HomeFooterComponent from "../components/home/footer"
 import PopupComponent from "../components/popup/index"
 
 class HomeContainer extends Component {
@@ -27,6 +28,7 @@ class HomeContainer extends Component {
         <BannerComponent data={this.props.data} db={this.props.db} />
         <ContentComponent data={this.props.data} db={this.props.db} />
         <ChartsComponent data={this.props.data} />
+        <HomeFooterComponent data={this.props.data} />
         <PopupComponent content={this.props.db.popup_content} />
       </React.Fragment>
     )

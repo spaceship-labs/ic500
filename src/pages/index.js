@@ -27,6 +27,9 @@ export const pageQuery = graphql`
         content_2 {
           html
         }
+        footer{
+          html
+        }
         body {
           __typename
           ... on PrismicHomeBodyGraficasDeValores {

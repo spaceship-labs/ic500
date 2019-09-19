@@ -57,7 +57,7 @@ const ContentText = styled.div`
     text-align: center;
   }
   p {
-    font-size: 16px;
+    font-size: ${props => (props.smallText ? 14 : 16)}px;
     font-weight: 300;
     line-height: 1.56;
   }
