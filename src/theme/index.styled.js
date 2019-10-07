@@ -89,6 +89,7 @@ const Rows = styled.div`
   flex-direction: row;
   justify-content: ${props =>
     props.align && props.align === "start" ? "flex-start" : props.align};
+  ${props => (props.verticalalign ? `align-items:${props.verticalalign};` : "")}
   ${props => (props.wrap ? "flex-wrap: wrap;" : "")}
   ${props => props.theme.mediumBreakPoint} {
     flex-direction: ${props => (props.rowM ? "row" : "column")};
@@ -100,6 +101,7 @@ const Rows = styled.div`
   }
   ${props => props.theme.smallBreakPoint} {
     flex-direction: ${props => (props.rowS ? "row" : "column")};
+    ${props => (props.wrapM ? "flex-wrap: wrap;" : "")}
     justify-content: ${props =>
       props.alignS && props.alignS === "start" ? "flex-start" : props.alignS};
   }

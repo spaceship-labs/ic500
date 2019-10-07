@@ -41,6 +41,9 @@ const Layout = ({ section, children }) => {
               youtube {
                 url
               }
+              footer_legend {
+                text
+              }
               database {
                 url
               }

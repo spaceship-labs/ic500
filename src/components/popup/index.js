@@ -9,13 +9,13 @@ class PopupComponent extends Component {
   }
   componentDidMount() {
     const c = this.getCookie("ic500")
-    console.log("Cookie", c)
+    //console.log("Cookie", c)
     if (!c) {
       this.setState({ open: true })
       this.setCookie()
     }
     const cc = this.getCookie("ic500")
-    console.log("Cookie", cc)
+    //console.log("Cookie", cc)
   }
   toggle = () => {
     this.setState({ open: !this.state.open })

@@ -18,7 +18,6 @@ import {
 
 const CustomXAxis = ({ x, y, payload, size }) => {
   const width = size <= 3 ? 200 : 80
-  console.log("AXIS", payload)
   return (
     <Text x={x} y={y} width={width} textAnchor="middle" verticalAnchor="start">
       {payload.value}

@@ -17,11 +17,30 @@ const Logo = styled.a`
   display: inline-block;
   max-width: ${props => (props.size ? props.size : 300)}px;
   img {
-    width: 100%;
+    width: ${props => (props.labeled ? 45 : 100)}%;
     height: auto;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+  }
+  span {
+    width: ${props => (props.labeled ? 50 : 100)}%;
+    font-size: 12px;
+    display: inline-block;
+    color: ${props => props.theme.White};
+    vertical-align: middle;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   ${props => props.theme.mediumBreakPoint} {
     padding: 10px 25px;
+  }
+  ${props => props.theme.smallBreakPoint} {
+    max-width: 50%;
+  }
+  ${props => props.theme.extraSmallBreakPoint} {
+    max-width: ${props => (props.labeled ? "100%" : "auto")};
+    margin: 0 auto;
   }
 `
 
@@ -74,4 +93,33 @@ const Social = styled.a`
   }
 `
 
-export { Footer, Logo, SmallMenu, Social }
+const Separation = styled.div`
+  flex: 0 1 1px;
+  max-width: 1px;
+  height: 50px;
+  background-color: ${props => props.theme.White};
+  margin: 0 10px;
+  ${props => props.theme.smallBreakPoint} {
+    margin: 10px;
+    ${props => (props.hideS ? "display: none;" : "")}
+  }
+  ${props => props.theme.extraSmallBreakPoint} {
+    display: none;
+  }
+`
+
+const Label = styled.div`
+  flex: 0 1 30%;
+  max-width: 30%;
+  padding-left: 20px;
+  p {
+    color: ${props => props.theme.White};
+    font-size: 12px;
+  }
+  ${props => props.theme.extraSmallBreakPoint} {
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+`
+
+export { Footer, Logo, SmallMenu, Social, Separation, Label }
