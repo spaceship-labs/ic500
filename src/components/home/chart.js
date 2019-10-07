@@ -11,8 +11,20 @@ import {
   AreaChart,
   Area,
   Label,
+  LabelList,
   ResponsiveContainer,
+  Text,
 } from "recharts"
+
+const CustomXAxis = ({ x, y, payload, size }) => {
+  const width = size <= 3 ? 200 : 80
+  console.log("AXIS", payload)
+  return (
+    <Text x={x} y={y} width={width} textAnchor="middle" verticalAnchor="start">
+      {payload.value}
+    </Text>
+  )
+}
 
 class ChartComponent extends Component {
   constructor(props) {
@@ -107,8 +119,16 @@ class ChartComponent extends Component {
       <CustomContainer width={w < 500 ? 500 : w}>
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={data}>
-            <XAxis dataKey="name">
-              <Label value="" offset={0} position="insideBottom" />
+            <XAxis
+              dataKey="name"
+              interval={0}
+              tick={<CustomXAxis size={data.length} />}
+            >
+              {/*<Label
+                value={this.state.Xaxis}
+                offset={-2}
+                position="insideBottom"
+              />*/}
             </XAxis>
             <YAxis
               label={{
@@ -118,9 +138,14 @@ class ChartComponent extends Component {
               }}
             ></YAxis>
             <Tooltip />
-            <Legend />
+            <Legend verticalAlign="top" />
             {years.map((y, index) => {
-              return <Bar key={index} dataKey={y} fill={colors[index % 4]} />
+              //console.log("YEAR", y)
+              return (
+                <Bar key={index} dataKey={y} fill={colors[index % 4]}>
+                  <LabelList dataKey={y} position="top" />
+                </Bar>
+              )
             })}
           </BarChart>
         </ResponsiveContainer>
@@ -135,7 +160,13 @@ class ChartComponent extends Component {
     return (
       <ResponsiveContainer width="100%" height={450}>
         <AreaChart data={data}>
-          <XAxis />
+          <XAxis
+            label={{
+              value: this.state.Xaxis,
+              position: "insideBottom",
+              offset: -5,
+            }}
+          />
           <YAxis
             label={{
               value: this.state.Yaxis,
@@ -144,7 +175,7 @@ class ChartComponent extends Component {
             }}
           ></YAxis>
           <Tooltip />
-          <Legend />
+          <Legend verticalAlign="top" />
           {years.map((y, index) => {
             return (
               <Area
@@ -165,7 +196,11 @@ class ChartComponent extends Component {
   render() {
     //console.log("CHART", this.props.chart)
     return (
-      <Container size="large" className="wow fadeInUp" style={{ visibility: "hidden" }}>
+      <Container
+        size="large"
+        className="wow fadeInUp"
+        style={{ visibility: "hidden" }}
+      >
         <br />
         <br />
         <ContentText>
