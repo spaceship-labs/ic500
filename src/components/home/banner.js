@@ -20,9 +20,10 @@ class BannerComponent extends Component {
                 <p>{subtitle.text}</p>
                 <Rows rowM align="space-between" alignM="space-around">
                   <DropdownComponent />
-                  <Button href={this.props.db.database.url} grayButton>
+                  <DropdownComponent type="dbs" />
+                  {/*<Button href={this.props.db.database.url} grayButton>
                     Descarga la base de datos
-                  </Button>
+    </Button>*/}
                 </Rows>
                 <br />
               </BannerTextBox>

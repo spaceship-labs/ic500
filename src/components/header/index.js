@@ -65,14 +65,29 @@ class HeaderComponent extends Component {
       { year: 1, url: "" }
     )
   }
+  getDb = () => {
+    const { databases } = this.props.data
+    return databases.reduce(
+      (result, db) => {
+        if (parseInt(db.year.text) >= result.year)
+          result = {
+            year: parseInt(db.year.text),
+            url: db.url.url,
+          }
+        return result
+      },
+      { year: 1, url: "" }
+    )
+  }
   toggleMenu = () => {
     this.setState({ menu: !this.state.menu })
   }
   render() {
     const { section } = this.props
-    const { database } = this.props.data
+    //const { database } = this.props.data
     const { facebook, twitter, instagram, youtube } = this.props.data
     const informe = this.getInforme()
+    const db = this.getDb()
     return (
       <Header className={this.state.scrollClass}>
         <Burguer
@@ -143,8 +158,8 @@ class HeaderComponent extends Component {
                 </Button>
               </p>
               <p>
-                <Button grayButton href={database.url}>
-                  Base de Datos <i className="icon-descarga" />
+                <Button grayButton href={db.url}>
+                  Base de Datos {db.year} <i className="icon-descarga" />
                 </Button>
               </p>
             </Row>
@@ -170,14 +185,9 @@ class HeaderComponent extends Component {
                 {informe.year} <i className="icon-descarga showS" />
               </span>
             </Button>
-            <Button
-              hiddenS
-              className="showOnScroll"
-              grayButton
-              href={database.url}
-            >
-              <i className="hideS">Descargar la </i>
-              Base de Datos <i className="icon-descarga showS" />
+            <Button hiddenS className="showOnScroll" grayButton href={db.url}>
+              <i className="hideS">Descargar </i>
+              Base de Datos {db.year} <i className="icon-descarga showS" />
             </Button>
             <MenuItem
               className={section === "about" ? "active" : ""}

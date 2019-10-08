@@ -3,7 +3,10 @@ import { Paragraph } from "../../theme/index.styled"
 
 const BannerTextBox = styled.div`
   padding: 20px 0 30px 0;
-  * {
+  h1,
+  h2,
+  h3,
+  p {
     color: ${props => props.theme.White};
   }
   h2 {

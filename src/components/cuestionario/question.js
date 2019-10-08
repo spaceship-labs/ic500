@@ -13,7 +13,6 @@ class QuestionComponent extends Component {
       <Question
         hidden={this.props.fullQuestion && !question.answer}
         className="wow fadeInUp"
-        style={{ visibility: "hidden" }}
       >
         <QuestionTitle>
           <span>{this.props.number}.</span>

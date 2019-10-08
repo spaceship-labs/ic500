@@ -211,14 +211,16 @@ const Dropdown = styled.div`
     width: 100%;
     box-sizing: border-box;
     position: absolute;
-    background-color: ${props => props.theme.Yellow};
+    background-color: ${props =>
+      props.grayButton ? props.theme.Gray : props.theme.Yellow};
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     list-style: none;
     padding: 10px 25px 5px 25px;
     a {
       display: block;
-      color: white;
+      color: ${props =>
+        props.grayButton ? props.theme.Black : props.theme.White};
       padding: 5px;
       text-align: center;
       border-top: 2px solid white;
